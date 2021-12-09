@@ -1,0 +1,1441 @@
+<!doctype html>
+<html>
+    <head>
+	    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="icon.jpg" type="image/x-icon">
+	    <title>PLC</title>
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <script src="https://kit.fontawesome.com/b4690f8f79.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="bg-dark">
+        <nav class="navbar bg-custom">
+            <div class="container">
+                <span class="navbar-brand">
+                    <img src="icon.jpg" alt="" width="32" height="32" class="mx-1"> Programming Language Comparer
+                </span>
+            </div>
+        </nav>
+        <nav id="scrollspy" class="navbar navbar-light bg-light flex-column-reverse p-2 align-items-stretch shared float-xxl-start sticky-xxl-top navbar-expand-xxl">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-link" href="#i1">Basics</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="#i1_1">Syntax</a>
+                        <a class="nav-link ms-3 my-1" href="#i1_2">Printing into console</a>
+                    </nav>
+                    <a class="nav-link" href="#i2">Types</a>
+                    <a class="nav-link" href="#i3">Operators</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="#i3_1">Arithmetic</a>
+                        <a class="nav-link ms-3 my-1" href="#i3_2">Logical, Relational</a>
+                    </nav>
+                    <a class="nav-link" href="#i4">Loops</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="#i4_1">For loop, Foreach</a>
+                        <a class="nav-link ms-3 my-1" href="#i4_2">While loop</a>
+                    </nav>
+                    <a class="nav-link" href="#i5">OOP</a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1" href="#i5_1">OOP Example</a>
+                    </nav>
+                </nav>
+            </div>
+        </nav>
+        <div class="container bg-white py-2 position-relative" data-bs-spy="scroll" data-bs-target="#scrollspy" data-bs-offset="0" tabindex="0">
+            <p class="lead">Compare basic syntax of different programming languages. Currently supporting Python and C#</p>
+            <hr>
+            <div class="row justify-content-center" name="swapper">
+                <div class="col-lg-5">
+                    <div class="row">
+                        <div class="col-5">
+                            <select class="form-select" aria-label="Language 1 selection" id="select1">
+                                <option value="0" selected>Select language</option>
+                                <option value="1">Python</option>
+                                <option value="2">C#</option>
+                            </select>
+                        </div>
+                        <div class="col-2 text-center">
+                            <button type="button" class="btn btn-secondary pt-1 pb-0" id="swapper"><span class="fas fa-exchange-alt"></span></button>
+                            
+                        </div>
+                        <div class="col-5">
+                            <select class="form-select" aria-label="Language 2 selection" id="select2">
+                                <option value="0" selected>Select language</option>
+                                <option value="1">Python</option>
+                                <option value="2">C#</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-2" name="Basics-syntax">
+                <h3 class="shared" id="i1">Basics</h3>
+                <h5 class="shared" id="i1_1">Syntax</h5>
+                <div class="col-6 col1">
+                    <div class="python">
+                        <p>Python is a dynamically-typed language, which means that it has typed objects but untyped variables.</p>
+                        <p>Python uses whitespace indentation, rather than curly brackets or keywords, to delimit blocks.</p>
+                        <p>A Python script is run from top to bottom, so a function has to be declared before it is called.</p>
+                        <p><b>Comments: </b>Comments in Python start with a #.</p>
+                        <pre>
+<span class="c"># This is a comment</span>
+<span class="f">print</span>(<span class="str">"Hello, World!"</span>) <span class="c"># This is another comment</span></pre>
+                        <p>Python does not really have syntax for multi line comments. To add a multiline comment you can insert a # for each line:</p>
+                        <pre>
+<span class="c"># This is a comment</span>
+<span class="c"># written in</span>
+<span class="c"># more than just one line</span>
+<span class="f">print</span>(<span class="str">"Hello, World!"</span>)</pre>
+                        <p>Or, not quite as intended - since Python will ignore string literals that are not assigned to a variable, you can add a multiline string (triple quotes) in your code, and place your comment inside it:</p>
+                        <pre>
+<span class="c">"""
+This is a comment
+written in
+more than just one line
+"""</span>
+<span class="f">print</span>(<span class="str">"Hello, World!"</span>)</pre>
+                    </div>
+                    <div class="cs">
+                        <p>C# is a statically-typed language, which means that it has typed variables.</p>
+                        <p>C# uses curly brackets to delimit blocks and semicolons to denote the end of a statement.</p>
+                        <p>C# supports strongly typed implicit variable declarations with the keyword var. Typed variables allow us to not assign them any value:</p>
+                        <pre>
+<span class="b">int </span><span class="v">myNumber</span>;
+<span class="v">myNumber</span> = <span class="i">2</span>;
+<span class="b">var </span><span class="v">myVariable</span> = <span class="str">"string"</span>;</pre>
+                        <p>The C# language does not allow for global variables or functions. All methods and members must be declared within classes. Static members of public classes can substitute for global variables and functions.</p>
+                        <b>Comments: </b>Comments in C# start with a //.
+                        <pre>
+<span class="c">// This is a comment</span>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"Hello World!"</span>); <span class="c">// This is another comment</span>
+
+<span class="c">/*
+This is a comment
+written in
+more than just one line
+*/</span>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"Hello World!"</span>);</pre>
+                    </div>
+                </div>
+                <div class="col-6 col2">
+                    <div class="python">
+                        <p>Python is a dynamically-typed language, which means that it has typed objects but untyped variables.</p>
+                        <p>Python uses whitespace indentation, rather than curly brackets or keywords, to delimit blocks.</p>
+                        <p>A Python script is run from top to bottom, so a function has to be declared before it is called.</p>
+                        <p><b>Comments: </b>Comments in Python start with a #</p>
+                        <pre>
+<span class="c"># This is a comment</span>
+<span class="f">print</span>(<span class="str">"Hello, World!"</span>) <span class="c"># This is another comment</span></pre>
+                        <p>Python does not really have syntax for multi line comments. To add a multiline comment you can insert a # for each line:</p>
+                        <pre>
+<span class="c"># This is a comment</span>
+<span class="c"># written in</span>
+<span class="c"># more than just one line</span>
+<span class="f">print</span>(<span class="str">"Hello, World!"</span>)</pre>
+                        <p>Or, not quite as intended - since Python will ignore string literals that are not assigned to a variable, you can add a multiline string (triple quotes) in your code, and place your comment inside it:</p>
+                        <pre>
+<span class="c">"""
+This is a comment
+written in
+more than just one line
+"""</span>
+<span class="f">print</span>(<span class="str">"Hello, World!"</span>)</pre>
+                    </div>
+                    <div class="cs">
+                        <p>C# is a statically-typed language, which means that it has typed variables.</p>
+                        <p>C# uses curly brackets to delimit blocks and semicolons to denote the end of a statement.</p>
+                        <p>C# supports strongly typed implicit variable declarations with the keyword var. Typed variables allow us to not assign them any value:</p>
+                        <pre>
+<span class="b">int </span><span class="v">myNumber</span>;
+<span class="v">myNumber</span> = <span class="i">2</span>;
+<span class="b">var </span><span class="v">myVariable</span> = <span class="str">"string"</span>;</pre>
+                        <p>The C# language does not allow for global variables or functions. All methods and members must be declared within classes. Static members of public classes can substitute for global variables and functions.</p>
+                        <b>Comments: </b>Comments in C# start with a //.
+                        <pre>
+<span class="c">// This is a comment</span>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"Hello World!"</span>); <span class="c">// This is another comment</span>
+
+<span class="c">/*
+This is a comment
+written in
+more than just one line
+*/</span>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"Hello World!"</span>);</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2" name="Basics-printing">
+                <h5 class="shared" id="i1_2">Strings and printing into console</h5>
+                <div class="col-6 col1">
+                    <div class="python">
+                        <p>Printing text into console</p>
+                        <pre>
+<span class="f">print</span>(<span class="str">"Hello World!"</span>)
+<span class="f">print</span>(<span class="str">'This works too'</span>)
+<span class="f">print</span>(<span class="i">451</span>)
+<span class="c"># Prints: >>>Hello World!
+#         >>>This works too
+#         >>>451</span></pre>
+                        <p>2 ways of printing "My name is John and I'm 25 years old." using variables:</p>
+                        <pre>
+<span class="v">name </span>= <span class="str">"John"</span>
+<span class="v">age </span>= <span class="i">25</span>
+
+<span class="c"># Classic string concatenation</span>
+<span class="f">print</span>(<span class="str">"My name is "</span>+<span class="v">name</span>+<span class="str">" and I'm "</span>+<span class="t">str</span>(<span class="v">age</span>)+<span class="str">" years old."</span>)
+<span class="c"># Variables must be strings - use type conversion function str()</span>
+
+<span class="c"># Efficient string formatting added in Python 3.6</span>
+<span class="f">print</span>(<span class="b">f</span><span class="str">"My name is </span><span class="b">{</span><span class="v">name</span><span class="b">}</span><span class="str"> and I'm </span><span class="b">{</span><span class="v">age</span><span class="b">}</span><span class="str"> years old."</span>)
+<span class="c"># Note the automatic conversion of int age to string</span></pre>
+                        <p>Use of special character \n which means newline and a feature of string formatting useful for debugging.                            </p>
+                        <pre>
+<span class="f">print</span>(<span class="b">f</span><span class="str">"</span><span class="b">{</span><span class="v">name</span>=<span class="b">}</span><span class="f">\n</span><span class="b">{</span><span class="v">age</span> = <span class="b">}</span><span class="str">"</span>)
+<span class="c"># Prints: >>>name='John'</span>
+<span class="c">#         >>>age = 25</span></pre>
+                        <p>Note that it keeps the spaces around equal sign we wrote in curly brackets.</p>
+                    </div>
+                    <div class="cs">
+                        <p>Printing text into console</p>
+                        <pre>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"Hello World!"</span>);
+<span class="v">Console</span>.<span class="f">Write</span>(<span class="str">"He said: "</span>);
+<span class="v">Console</span>.<span class="f">Write</span>(<span class="str">"451"</span>);
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"!"</span>);
+<span class="c">// Prints: >>>Hello World!
+//         >>>He said: 451!</span></pre>
+                        <p>Console.WriteLine adds a \n (newline) to the end of the string while Console.Write does not.</p>
+                        <p>3 ways of printing "My name is John and I'm 25 years old." using variables:</p>
+                        <pre>
+<span class="b">string </span><span class="v">name</span> = <span class="str">"John"</span>;
+<span class="b">int </span><span class="v">age</span> = <span class="i">25</span>;
+
+<span class="c">// Classic string concatenation</span>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"My name is "</span>+<span class="v">name</span>+<span class="str">" and I'm "</span>+<span class="v">age</span>+<span class="str">" years old."</span>);
+
+<span class="c">// String formatting</span>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="v">String</span>.<span class="f">Format</span>(<span class="str">"My name is {0} and I'm {1} years old."</span>,
+                                <span class="v">name</span>, <span class="v">age</span>)); <span class="c">// or</span>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"My name is {0} and I'm {1} years old."</span>, <span class="v">name</span>, <span class="v">age</span>);
+
+<span class="c">// String interpolation</span>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">$"My name is {</span><span class="v">name</span><span class="str">} and I'm {</span><span class="v">age</span><span class="str">} years old."</span>);</pre>
+                        <p>Note that all of these implicitly converted int age to string.</p>
+                    </div>
+                </div>
+                <div class="col-6 col2">
+                    <div class="python">
+                        <p>Printing text into console</p>
+                        <pre>
+<span class="f">print</span>(<span class="str">"Hello World!"</span>)
+<span class="f">print</span>(<span class="str">'This works too'</span>)
+<span class="f">print</span>(<span class="i">451</span>)
+<span class="c"># Prints: >>>Hello World!
+#         >>>This works too
+#         >>>451</span></pre>
+                        <p>2 ways of printing "My name is John and I'm 25 years old." using variables:</p>
+                        <pre>
+<span class="v">name </span>= <span class="str">"John"</span>
+<span class="v">age </span>= <span class="i">25</span>
+
+<span class="c"># Classic string concatenation</span>
+<span class="f">print</span>(<span class="str">"My name is "</span>+<span class="v">name</span>+<span class="str">" and I'm "</span>+<span class="t">str</span>(<span class="v">age</span>)+<span class="str">" years old."</span>)
+<span class="c"># Variables must be strings - use type conversion function str()</span>
+
+<span class="c"># Efficient string formatting added in Python 3.6</span>
+<span class="f">print</span>(<span class="b">f</span><span class="str">"My name is </span><span class="b">{</span><span class="v">name</span><span class="b">}</span><span class="str"> and I'm </span><span class="b">{</span><span class="v">age</span><span class="b">}</span><span class="str"> years old."</span>)
+<span class="c"># Note the automatic conversion of int age to string</span></pre>
+                        <p>Use of special character \n which means newline and a feature of string formatting useful for debugging.                            </p>
+                        <pre>
+<span class="f">print</span>(<span class="b">f</span><span class="str">"</span><span class="b">{</span><span class="v">name</span>=<span class="b">}</span><span class="f">\n</span><span class="b">{</span><span class="v">age</span> = <span class="b">}</span><span class="str">"</span>)
+<span class="c"># Prints: >>>name='John'</span>
+<span class="c">#         >>>age = 25</span></pre>
+                        <p>Note that it keeps the spaces around equal sign we wrote in curly brackets.</p>
+                    </div>
+                    <div class="cs">
+                        <p>Printing text into console</p>
+                        <pre>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"Hello World!"</span>);
+<span class="v">Console</span>.<span class="f">Write</span>(<span class="str">"He said: "</span>);
+<span class="v">Console</span>.<span class="f">Write</span>(<span class="str">"451"</span>);
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"!"</span>);
+<span class="c">// Prints: >>>Hello World!
+//         >>>He said: 451!</span></pre>
+                        <p>Console.WriteLine adds a \n (newline) to the end of the string while Console.Write does not.</p>
+                        <p>3 ways of printing "My name is John and I'm 25 years old." using variables:</p>
+                        <pre>
+<span class="b">string </span><span class="v">name</span> = <span class="str">"John"</span>;
+<span class="b">int </span><span class="v">age</span> = <span class="i">25</span>;
+
+<span class="c">// Classic string concatenation</span>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"My name is "</span>+<span class="v">name</span>+<span class="str">" and I'm "</span>+<span class="v">age</span>+<span class="str">" years old."</span>);
+
+<span class="c">// String formatting</span>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="v">String</span>.<span class="f">Format</span>(<span class="str">"My name is {0} and I'm {1} years old."</span>,
+                                <span class="v">name</span>, <span class="v">age</span>)); <span class="c">// or</span>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"My name is {0} and I'm {1} years old."</span>, <span class="v">name</span>, <span class="v">age</span>);
+
+<span class="c">// String interpolation</span>
+<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">$"My name is {</span><span class="v">name</span><span class="str">} and I'm {</span><span class="v">age</span><span class="str">} years old."</span>);</pre>
+                        <p>Note that all of these implicitly converted int age to string.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2" name="Types">
+                <h3 class="shared" id="i2">Types</h3>
+                <div class="col-6 col1">
+                    <div class="python">
+                        <img src="img/types.png" alt="python types img" class="img-fluid">
+                        <p>None is Python equivalent to null in other languages. It's one of the falsy values and it's also the default value returned by functions that doesn't return anything, e.g. print().</p>
+                        <p>Python booleans are written with upper first letter: True/False. true or false would raise an error.</p>
+                        <pre>
+<span class="v">my_boolean</span> = <span class="b">True</span>
+<span class="v">my_boolean2</span> = <span class="i">1</span> > <span class="i">2</span> <span class="c"># = False</span></pre>
+                        <p>Create numeric variables of types: [int, float, complex] and assign them to 2.</p>
+                        <pre>
+<span class="v">my_integer</span> = <span class="i">2</span>
+<span class="v">my_float</span> = <span class="i">2.0</span>
+<span class="v">my_complex</span> = <span class="i">2</span><span class="b">j</span></pre>
+                        <p>Strings are iterable, immutable and ordered sequences. In Python, even characters like "c" are strings.</p>
+                        <pre>
+<span class="v">my_string</span> = <span class="str">""</span> <span class="c"># Create empty string object</span>
+<span class="v">my_string2</span> = <span class="str">"bLue skY"</span>
+<span class="v">my_string2</span> = <span class="v">my_string2</span><span class="f">.upper</span>() <span class="c"># = BLUE SKY</span>
+<span class="c"># .upper() method returns an uppercased copy of a string, </span>
+<span class="c"># it doesn't change the string in-place!</span></pre>
+                        <p>Tuples are iterable, immutable and ordered sequences.</p>
+                        <pre>
+<span class="v">my_tuple</span> = () <span class="c"># Create empty tuple object</span>
+<span class="v">my_tuple2</span> = (<span class="i">2</span>, <span class="i">2</span>, <span class="i">9.5</span>, <span class="i">-4</span>, <span class="str">"apple"</span>)
+<span class="v">third</span> = <span class="v">my_list2</span>[<span class="i">2</span>] <span class="c"># = 9.5; Accessing sequence item by it's index</span>
+<span class="v">my_tuple3</span> = ([<span class="i">5</span>, <span class="i">8</span>], (<span class="i">8</span>, <span class="i">2</span>))
+<span class="v">my_tuple3</span>[<span class="i">0</span>][<span class="i">1</span>] = <span class="i">2</span> <span class="c"># my_tuple3 = ([5, 2], (8, 2))</span>
+<span class="error">my_tuple3[1][1] = 3</span> <span class="c"># --> Error (can't change tuples)</span></pre>
+                        <p>Lists are iterable, mutable and ordered sequences. Similar to arrays in other languages, but can hold different types.</p>
+                        <pre>
+<span class="v">my_list</span> = [] <span class="c"># Create empty list object</span>
+<span class="v">my_list2</span> = [<span class="i">2</span>, <span class="str">"Steve"</span>, <span class="str">' '</span>, <span class="b">True</span>, <span class="i">4.5</span>, <span class="b">None</span>]
+<span class="v">item</span> = <span class="v">my_list2</span>[<span class="i">1</span>] <span class="c"># Accessing sequence item by it's index</span>
+<span class="v">my_list2</span>[<span class="i">2</span>] = <span class="str">"third"</span> <span class="c"># Changing sequence item by it's index</span>
+<span class="v">length</span> = <span class="f">len</span>(<span class="v">my_list2</span>) <span class="c"># = 6</span>
+
+<span class="v">my_list2</span><span class="f">.append</span>(<span class="str">"last"</span>)
+<span class="c"># Appends given object ("last") to the end of the list</span>
+<span class="v">my_list2</span><span class="f">.insert</span>(<span class="i">-1</span>, <span class="str">"second last"</span>)
+<span class="c"># Inserts given object ("second last") BEFORE given index (-1)</span>
+<span class="v">my_list</span><span class="f">.extend</span>(<span class="v">my_list2</span>)
+<span class="c"># Appends elements from given iterable (my_list2)</span>
+
+<span class="v">first</span> = <span class="v">my_list</span><span class="f">.pop</span>(<span class="i">0</span>)
+<span class="c"># Removes item at given index (0) and returns it's value --> first = 2</span>
+<span class="v">my_list</span><span class="f">.remove</span>(<span class="str">"Steve"</span>)
+<span class="c"># Removes first occurence of given item from list</span>
+
+<span class="c"># Sorting lists</span>
+<span class="c"># sorted() function returns a sorted list of items from an iterable.</span>
+<span class="c"># .sort() method changes original list and returns None.</span>
+<span class="c"># Ascending order on default, descending using reverse=True keyword.</span>
+<span class="v">unsorted_list</span> = [<span class="i">8</span>, <span class="i">-2</span>, <span class="i">84</span>, <span class="i">0</span>, <span class="i">-99</span>]
+<span class="v">sorted_list</span> = <span class="f">sorted</span>(<span class="v">unsorted_list</span>, <span class="v">reverse</span>=<span class="b">True</span>)
+<span class="v">unsorted_list</span><span class="f">.sort</span>(<span class="v">reverse</span>=<span class="b">True</span>)
+<span class="c"># unsorted_list == sorted_list = [84, 8, 0, -2, -99]</span></pre>
+                        <p>Sets are iterable, mutable and unordered. They don't allow duplicates, which is useful for getting rid of duplicates from a list (if we don't mind losing order).</p>
+                        <p>Note that empty set isn't declared using {} (that would be dictionary), but using set() function.</p>
+                        <pre>
+<span class="v">my_set</span> = <span class="t">set</span>() <span class="c"># Create empty set object</span>
+<span class="v">my_set2</span> = {<span class="i">2</span>, <span class="i">2</span>, <span class="i">9.5</span>, <span class="i">-4</span>, <span class="str">"apple"</span>}
+<span class="f">print</span>(<span class="v">my_set2</span>)
+<span class="c"># Prints e.g.: {9.5, 2, 'apple', -4} - second 2 is gone, order is random</span></pre>
+                        <p>Dictionaries are iterable, mutable and ordered (from Python 3.7). A dictionary is basically a hash table in common terms.</p>
+                        <pre>
+<span class="v">my_dict</span> = {} <span class="c"># Create empty dictionary object</span>
+<span class="v">my_dict2</span> = {<span class="str">"key"</span>: <span class="str">"value"</span>, <span class="str">"first"</span>: <span class="str">"John"</span>, <span class="i">1</span>: <span class="str">"John"</span>, <span class="i">3.14</span>: <span class="b">False</span>}
+
+<span class="v">my_dict2</span>[<span class="str">"new"</span>] = <span class="str">"new value"</span> <span class="c"># Adds a new key:value pair to the dictionary</span>
+<span class="v">my_dict2</span>[<span class="str">"key"</span>] = <span class="str">"updated value"</span> <span class="c"># Changes value with given key</span>
+
+<span class="v">first</span> = <span class="v">my_dict2</span>[<span class="str">"first"</span>] <span class="c"># first = "John"</span>
+<span class="v">first</span> = <span class="v"> my_dict2</span><span class="f">.get</span>(<span class="str">"first"</span>) <span class="c"># first = "John"</span>
+<span class="error">second = my_dict2["second"]</span> <span class="c"># --> Error (key "second" doesn't exist)</span>
+<span class="v">second</span> = <span class="v">my_dict2</span><span class="f">.get</span>(<span class="str">"second"</span>, <span class="str">"Key not found"</span>)
+<span class="c"># second = "Key not found", if left blank --> second = None</span>
+
+<span class="v">my_dict2</span>.<span class="f">pop</span>(<span class="str">"key"</span>) <span class="c"># Removes a pair based on given key;</span>
+                    <span class="c"># Also returns the value (similar to .pop on list)</span>
+<span class="v">my_dict2</span>.<span class="f">clear</span>() <span class="c"># Removes all pairs</span></pre>
+                        <p>Python type conversion functions:</p>
+                        <img src="img/type_conversion.png" alt="python type conversion img" class="img-fluid">
+                    </div>
+                    <div class="cs">
+                        <img src="img/c-sharp-data-types.jpg" alt="cs types img" class="img-fluid">
+                        <p>Boolean values are lowercase, default is false.</p>
+                        <pre>
+<span class="b">bool </span><span class="v">myBoolean</span> = <span class="b">true</span>;
+<span class="b">bool </span><span class="v">myBoolean2</span> = <span class="i">1</span> > <span class="i">2</span>; <span class="c">// = false</span>
+<span class="b">bool </span><span class="v">defaultBool</span> = <span class="b">default</span>(<span class="b">bool</span>); <span class="c">// = false</span></pre>
+                        <p>Numeric data types include value range. The compiler will give an error if the value goes out of datatype's permitted range.</p>
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Range</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>byte</td>
+                                    <td>8-bit unsigned integer</td>
+                                    <td>0 to 255</td>
+                                </tr>
+                                <tr>
+                                    <td>short</td>
+                                    <td>16-bit signed integer</td>
+                                    <td>-32,768 to 32,767</td>
+                                </tr>
+                                <tr>
+                                    <td>int</td>
+                                    <td>32-bit signed integer</td>
+                                    <td>-2,147,483,648 to 2,147,483,647</td>
+                                </tr>
+                                <tr>
+                                    <td>long</td>
+                                    <td>64-bit signed integer</td>
+                                    <td><i>long</i></td>
+                                </tr>
+                                <tr>
+                                    <td>float</td>
+                                    <td>32-bit Single-precision floating point type</td>
+                                    <td>-3.402823e38 to 3.402823e38</td>
+                                </tr>
+                                <tr>
+                                    <td>double</td>
+                                    <td>64-bit double-precision floating point type</td>
+                                    <td><i>long</i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>There is also signed byte (sbyte), unsigned versions of others (uint, ulong...) and decimal for financial calculations.</p>
+                        <p>The value of unsigned integers, long, float, double, and decimal type must be suffix by u, l, f, d, and m, respectively.</p>
+                        <pre>
+<span class="b">long </span><span class="v">number</span> = <span class="i">123L</span>; <span class="c">// Upper L for better code readability</span>
+<span class="b">float </span><span class="v">number2</span> = <span class="i">1.23f</span>;
+<span class="b">double </span><span class="v">number3</span> = <span class="i">123d</span>;</pre>
+                        <p>Strings are sequences of Unicode characters.</p>
+                        <pre>
+<span class="b">string </span><span class="v">myString</span> = <span class="str">"bLue skY"</span>;
+<span class="b">char </span><span class="v">myChar</span> = <span class="v">myString</span>[<span class="i">1</span>]; <span class="c">// = 'L'</span>
+<span class="v">myString</span> = <span class="v">myString</span>.<span class="f">ToUpper</span>(); <span class="c">// = BLUE SKY</span>
+<span class="c">// .ToUpper() method returns an uppercased copy of a string,
+// it doesn't change the string in-place!</span></pre>
+                        <p>An array is a data structure that stores a fixed number of literal values of the same data type. It can be declared using the type of its elements with square brackets, new keyword, and a size.</p>
+                        <pre>
+<span class="b">int</span>[] <span class="v">intArray</span>; <span class="c">// Integer array</span>
+<span class="b">string</span>[] <span class="v">cities</span> = <span class="b">new string</span>[<span class="i">3</span>]; <span class="c">// String array of size 3</span>
+<span class="v">cities</span>[<span class="i">0</span>] = <span class="str">"Prague"</span>; <span class="c">// Assigning value at index 0</span>
+
+<span class="c">// Declare and add values into an array in a single statement;
+// Size is based on the number of elements inside curly braces</span>
+<span class="b">int</span>[] <span class="v">evenNums</span> = {<span class="i">2</span>, <span class="i">4</span>, <span class="i">6</span>, <span class="i">8</span>, <span class="i">10</span>};
+<span class="b">var </span><span class="v">evenNums2</span> = <span class="b">new int</span>[]{<span class="i">2</span>, <span class="i">4</span>, <span class="i">6</span>, <span class="i">8</span>, <span class="i">10</span>}; <span class="c">// or with var and new</span>
+<span class="error">var evenNumsInvalid = {2, 4, 6, 8, 10};</span> <span class="c">// --> Error</span></pre>
+                        <p>ArrayList is a collection of elements of the same or various data types (non-generic collection) with dynamic size. It has some useful methods not available with Arrays (e.g. Reverse, Contains, Sort). The class is in the System.Collections namespace.</p>
+                        <pre>
+<span class="s">using </span><span class="t">System</span>.<span class="t">Collections</span>;
+
+<span class="t">ArrayList </span><span class="v">myArrayList</span> = <span class="b">new </span><span class="t">ArrayList</span>(); <span class="c">// Create empty ArrayList</span>
+<span class="b">var</span> <span class="v">arList2</span> = <span class="b">new </span><span class="t">ArrayList</span>(){<span class="i">2</span>, <span class="str">"Steve"</span>, <span class="str">' '</span>, <span class="b">true</span>, <span class="i">4.5</span>, <span class="b">null</span>};
+<span class="c">// An explicit casting to the appropriate types is required, 
+// or use the var variable when accessing values</span>
+<span class="b">string </span><span class="v">item</span> = (<span class="b">string</span>)<span class="v">arList2</span>[<span class="i">1</span>];
+<span class="b">var </span><span class="v">item2</span> = <span class="v">arList2</span>[<span class="i">1</span>];
+<span class="v">arList2</span>[<span class="i">2</span>] = <span class="str">"third"</span>; <span class="c">// Changing item by it's index</span>
+<span class="b">int </span><span class="v">length</span> = <span class="v">arList2</span>.<span class="v">Count</span>; <span class="c">// = 6</span>
+
+<span class="v">arList2</span>.<span class="f">Add</span>(<span class="str">"last"</span>); <span class="c">// Add element to the end of the ArrayList</span>
+<span class="v">arList2</span>.<span class="f">Insert</span>(<span class="v">arList2</span>.<span class="v">Count</span> - <span class="i">1</span>, <span class="str">"second last"</span>);
+<span class="v">myArrayList</span>.<span class="f">AddRange</span>(<span class="v">arList2</span>);
+<span class="c">// Add a collection (Array, ArrayList...) to the ArrayList</span>
+
+<span class="v">myArrayList</span>.<span class="f">RemoveAt</span>(<span class="i">0</span>); <span class="c">// Removes item at given index</span>
+<span class="v">myArrayList</span>.<span class="f">Remove</span>(<span class="i">2</span>); <span class="c">// Removes first occurence of given item</span>
+
+<span class="b">var </span><span class="v">unsortedList</span> = <span class="b">new </span><span class="t">ArrayList</span>(){<span class="i">8</span>, -<span class="i">2</span>, <span class="i">84</span>, <span class="i">0</span>, -<span class="i">99</span>};
+<span class="v">unsortedList</span>.<span class="f">Sort</span>(); <span class="c">// Sorts list in ascending order</span>
+<span class="v">unsortedList</span>.<span class="f">Reverse</span>();
+<span class="c">// unsortedList = {84, 8, 0, -2, -99}</span></pre>
+                        <p>List is a collection of elements of the same data type (generic collection) with dynamic size. It has some useful methods like ArrayLists (e.g. Reverse, Contains, Sort). The class is in the System.Collections.Generic namespace. List performs faster and is less error-prone than ArrayList.</p>
+                        <pre>
+<span class="s">using </span><span class="t">System</span>.<span class="t">Collections</span>.<span class="t">Generic</span>;
+
+<span class="t">List</span><<span class="b">int</span>> <span class="v">intList</span> = <span class="b">new </span><span class="t">List</span><<span class="b">int</span>>(); <span class="c">// Create empty List</span>
+<span class="b">var </span><span class="v">strList</span> = <span class="b">new </span><span class="t">List</span><<span class="b">string</span>>(){<span class="str">"Prague"</span>, <span class="str">"London"</span>, <span class="b">null</span>};
+<span class="b">string </span><span class="v">item1</span> = <span class="v">strList</span>[<span class="i">0</span>]; <span class="c">// No need for type casting</span>
+<span class="c">// ... (methods, assigning etc. similar to ArrayList)</span></pre>
+                        <p>Dictionary is a generic collection that stores key-value pairs. Keys must be unique and cannot be null. Values can be null or duplicate. The class is in the System.Collections.Generic namespace.</p>
+                        <pre>
+<span class="s">using </span><span class="t">System</span>.<span class="t">Collections</span>.<span class="t">Generic</span>;
+
+<span class="t">Dictionary</span><<span class="b">int</span>, <span class="b">string</span>> <span class="v">numberNames</span> = <span class="b">new </span><span class="t">Dictionary</span><span class="b">int</span>, <span class="b">string</span>>();
+<span class="b">var </span><span class="v">capitals</span> = <span class="b">new </span><span class="t">Dictionary</span><<span class="b">string</span>, <span class="b">string</span>>(){{<span class="str">"UK"</span>, <span class="str">"London"</span>},
+                                                {<span class="str">"USA"</span>, <span class="str">"Washington"</span>},
+                                                {<span class="str">"India"</span>, <span class="str">"Pune"</span>}};
+
+<span class="v">numberNames</span>.<span class="f">Add</span>(<span class="i">1</span>, <span class="str">"one"</span>); <span class="c">// Adds a new key:value pair to the dictionary</span>
+<span class="v">capitals</span>[<span class="str">"India"</span>] = <span class="str">"New Delhi"</span>; <span class="c">// Changes value with given key</span>
+
+<span class="b">string </span><span class="v">USA</span> = <span class="v">capitals</span>[<span class="str">"USA"</span>]; <span class="c">// = "Washington"</span>
+<span class="error">string Germany = capitals["Germany"]; </span><span class="c">// --> Error (key "Germany" doesn't exist)</span>
+<span class="c">// Use .ContainsKey() to check for an unknown key</span>
+<span class="s">if</span> (<span class="v">capitals</span>.<span class="f">ContainsKey</span>(<span class="str">"Germany"</span>)){
+    <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="v">capitals</span>[<span class="str">"Germany"</span>]);
+}
+
+<span class="v">capitals</span>.<span class="f">Remove</span>(<span class="str">"UK"</span>); <span class="c">// Removes a pair based on given key</span>
+<span class="v">capitals</span>.<span class="f">Clear</span>(); <span class="c">// Removes all pairs</span></pre>
+                        <p>Explicit type casting (conversion):</p>
+                        <pre>
+<span class="b">double </span><span class="v">myDouble</span> = <span class="i">9.78</span>;
+<span class="b">int </span><span class="v">myInt</span> = (<span class="b">int</span>) <span class="v">myDouble</span>; <span class="c">// = 9 (data loss)</span></pre>
+                    </div>
+                </div>
+                <div class="col-6 col2">
+                    <div class="python">
+                        <img src="img/types.png" alt="python types img" class="img-fluid">
+                        <p>None is Python equivalent to null in other languages. It's one of the falsy values and it's also the default value returned by functions that doesn't return anything, e.g. print().</p>
+                        <p>Python booleans are written with upper first letter: True/False. true or false would raise an error.</p>
+                        <pre>
+<span class="v">my_boolean</span> = <span class="b">True</span>
+<span class="v">my_boolean2</span> = <span class="i">1</span> > <span class="i">2</span> <span class="c"># = False</span></pre>
+                        <p>Create numeric variables of types: [int, float, complex] and assign them to 2.</p>
+                        <pre>
+<span class="v">my_integer</span> = <span class="i">2</span>
+<span class="v">my_float</span> = <span class="i">2.0</span>
+<span class="v">my_complex</span> = <span class="i">2</span><span class="b">j</span></pre>
+                        <p>Strings are iterable, immutable and ordered sequences. In Python, even characters like "c" are strings.</p>
+                        <pre>
+<span class="v">my_string</span> = <span class="str">""</span> <span class="c"># Create empty string object</span>
+<span class="v">my_string2</span> = <span class="str">"bLue skY"</span>
+<span class="v">my_string2</span> = <span class="v">my_string2</span><span class="f">.upper</span>() <span class="c"># = BLUE SKY</span>
+<span class="c"># .upper() method returns an uppercased copy of a string, </span>
+<span class="c"># it doesn't change the string in-place!</span></pre>
+                        <p>Tuples are iterable, immutable and ordered sequences.</p>
+                        <pre>
+<span class="v">my_tuple</span> = () <span class="c"># Create empty tuple object</span>
+<span class="v">my_tuple2</span> = (<span class="i">2</span>, <span class="i">2</span>, <span class="i">9.5</span>, <span class="i">-4</span>, <span class="str">"apple"</span>)
+<span class="v">third</span> = <span class="v">my_list2</span>[<span class="i">2</span>] <span class="c"># = 9.5; Accessing sequence item by it's index</span>
+<span class="v">my_tuple3</span> = ([<span class="i">5</span>, <span class="i">8</span>], (<span class="i">8</span>, <span class="i">2</span>))
+<span class="v">my_tuple3</span>[<span class="i">0</span>][<span class="i">1</span>] = <span class="i">2</span> <span class="c"># my_tuple3 = ([5, 2], (8, 2))</span>
+<span class="error">my_tuple3[1][1] = 3</span> <span class="c"># --> Error (can't change tuples)</span></pre>
+                        <p>Lists are iterable, mutable and ordered sequences. Similar to arrays in other languages, but can hold different types.</p>
+                        <pre>
+<span class="v">my_list</span> = [] <span class="c"># Create empty list object</span>
+<span class="v">my_list2</span> = [<span class="i">2</span>, <span class="str">"Steve"</span>, <span class="str">' '</span>, <span class="b">True</span>, <span class="i">4.5</span>, <span class="b">None</span>]
+<span class="v">item</span> = <span class="v">my_list2</span>[<span class="i">1</span>] <span class="c"># Accessing sequence item by it's index</span>
+<span class="v">my_list2</span>[<span class="i">2</span>] = <span class="str">"third"</span> <span class="c"># Changing sequence item by it's index</span>
+<span class="v">length</span> = <span class="f">len</span>(<span class="v">my_list2</span>) <span class="c"># = 6</span>
+
+<span class="v">my_list2</span><span class="f">.append</span>(<span class="str">"last"</span>)
+<span class="c"># Appends given object ("last") to the end of the list</span>
+<span class="v">my_list2</span><span class="f">.insert</span>(<span class="i">-1</span>, <span class="str">"second last"</span>)
+<span class="c"># Inserts given object ("second last") BEFORE given index (-1)</span>
+<span class="v">my_list</span><span class="f">.extend</span>(<span class="v">my_list2</span>)
+<span class="c"># Appends elements from given iterable (my_list2)</span>
+
+<span class="v">first</span> = <span class="v">my_list</span><span class="f">.pop</span>(<span class="i">0</span>)
+<span class="c"># Removes item at given index (0) and returns it's value --> first = 2</span>
+<span class="v">my_list</span><span class="f">.remove</span>(<span class="str">"Steve"</span>)
+<span class="c"># Removes first occurence of given item from list</span>
+
+<span class="c"># Sorting lists</span>
+<span class="c"># sorted() function returns a sorted list of items from an iterable.</span>
+<span class="c"># .sort() method changes original list and returns None.</span>
+<span class="c"># Ascending order on default, descending using reverse=True keyword.</span>
+<span class="v">unsorted_list</span> = [<span class="i">8</span>, <span class="i">-2</span>, <span class="i">84</span>, <span class="i">0</span>, <span class="i">-99</span>]
+<span class="v">sorted_list</span> = <span class="f">sorted</span>(<span class="v">unsorted_list</span>, <span class="v">reverse</span>=<span class="b">True</span>)
+<span class="v">unsorted_list</span><span class="f">.sort</span>(<span class="v">reverse</span>=<span class="b">True</span>)
+<span class="c"># unsorted_list == sorted_list = [84, 8, 0, -2, -99]</span></pre>
+                        <p>Sets are iterable, mutable and unordered. They don't allow duplicates, which is useful for getting rid of duplicates from a list (if we don't mind losing order).</p>
+                        <p>Note that empty set isn't declared using {} (that would be dictionary), but using set() function.</p>
+                        <pre>
+<span class="v">my_set</span> = <span class="t">set</span>() <span class="c"># Create empty set object</span>
+<span class="v">my_set2</span> = {<span class="i">2</span>, <span class="i">2</span>, <span class="i">9.5</span>, <span class="i">-4</span>, <span class="str">"apple"</span>}
+<span class="f">print</span>(<span class="v">my_set2</span>)
+<span class="c"># Prints e.g.: {9.5, 2, 'apple', -4} - second 2 is gone, order is random</span></pre>
+                        <p>Dictionaries are iterable, mutable and ordered (from Python 3.7). A dictionary is basically a hash table in common terms.</p>
+                        <pre>
+<span class="v">my_dict</span> = {} <span class="c"># Create empty dictionary object</span>
+<span class="v">my_dict2</span> = {<span class="str">"key"</span>: <span class="str">"value"</span>, <span class="str">"first"</span>: <span class="str">"John"</span>, <span class="i">1</span>: <span class="str">"John"</span>, <span class="i">3.14</span>: <span class="b">False</span>}
+
+<span class="v">my_dict2</span>[<span class="str">"new"</span>] = <span class="str">"new value"</span> <span class="c"># Adds a new key:value pair to the dictionary</span>
+<span class="v">my_dict2</span>[<span class="str">"key"</span>] = <span class="str">"updated value"</span> <span class="c"># Changes value with given key</span>
+
+<span class="v">first</span> = <span class="v">my_dict2</span>[<span class="str">"first"</span>] <span class="c"># first = "John"</span>
+<span class="v">first</span> = <span class="v"> my_dict2</span><span class="f">.get</span>(<span class="str">"first"</span>) <span class="c"># first = "John"</span>
+<span class="error">second = my_dict2["second"]</span> <span class="c"># --> Error (key "second" doesn't exist)</span>
+<span class="v">second</span> = <span class="v">my_dict2</span><span class="f">.get</span>(<span class="str">"second"</span>, <span class="str">"Key not found"</span>)
+<span class="c"># second = "Key not found", if left blank --> second = None</span>
+
+<span class="v">my_dict2</span>.<span class="f">pop</span>(<span class="str">"key"</span>) <span class="c"># Removes a pair based on given key;</span>
+                    <span class="c"># Also returns the value (similar to .pop on list)</span>
+<span class="v">my_dict2</span>.<span class="f">clear</span>() <span class="c"># Removes all pairs</span></pre>
+                        <p>Python type conversion functions:</p>
+                        <img src="img/type_conversion.png" alt="python type conversion img" class="img-fluid">
+                    </div>
+                    <div class="cs">
+                        <img src="img/c-sharp-data-types.jpg" alt="cs types img" class="img-fluid">
+                        <p>Boolean values are lowercase, default is false.</p>
+                        <pre>
+<span class="b">bool </span><span class="v">myBoolean</span> = <span class="b">true</span>;
+<span class="b">bool </span><span class="v">myBoolean2</span> = <span class="i">1</span> > <span class="i">2</span>; <span class="c">// = false</span>
+<span class="b">bool </span><span class="v">defaultBool</span> = <span class="b">default</span>(<span class="b">bool</span>); <span class="c">// = false</span></pre>
+                        <p>Numeric data types include value range. The compiler will give an error if the value goes out of datatype's permitted range.</p>
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Range</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>byte</td>
+                                    <td>8-bit unsigned integer</td>
+                                    <td>0 to 255</td>
+                                </tr>
+                                <tr>
+                                    <td>short</td>
+                                    <td>16-bit signed integer</td>
+                                    <td>-32,768 to 32,767</td>
+                                </tr>
+                                <tr>
+                                    <td>int</td>
+                                    <td>32-bit signed integer</td>
+                                    <td>-2,147,483,648 to 2,147,483,647</td>
+                                </tr>
+                                <tr>
+                                    <td>long</td>
+                                    <td>64-bit signed integer</td>
+                                    <td><i>long</i></td>
+                                </tr>
+                                <tr>
+                                    <td>float</td>
+                                    <td>32-bit Single-precision floating point type</td>
+                                    <td>-3.402823e38 to 3.402823e38</td>
+                                </tr>
+                                <tr>
+                                    <td>double</td>
+                                    <td>64-bit double-precision floating point type</td>
+                                    <td><i>long</i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>There is also signed byte (sbyte), unsigned versions of others (uint, ulong...) and decimal for financial calculations.</p>
+                        <p>The value of unsigned integers, long, float, double, and decimal type must be suffix by u, l, f, d, and m, respectively.</p>
+                        <pre>
+<span class="b">long </span><span class="v">number</span> = <span class="i">123L</span>; <span class="c">// Upper L for better code readability</span>
+<span class="b">float </span><span class="v">number2</span> = <span class="i">1.23f</span>;
+<span class="b">double </span><span class="v">number3</span> = <span class="i">123d</span>;</pre>
+                        <p>Strings are sequences of Unicode characters.</p>
+                        <pre>
+<span class="b">string </span><span class="v">myString</span> = <span class="str">"bLue skY"</span>;
+<span class="b">char </span><span class="v">myChar</span> = <span class="v">myString</span>[<span class="i">1</span>]; <span class="c">// = 'L'</span>
+<span class="v">myString</span> = <span class="v">myString</span>.<span class="f">ToUpper</span>(); <span class="c">// = BLUE SKY</span>
+<span class="c">// .ToUpper() method returns an uppercased copy of a string,
+// it doesn't change the string in-place!</span></pre>
+                        <p>An array is a data structure that stores a fixed number of literal values of the same data type. It can be declared using the type of its elements with square brackets, new keyword, and a size.</p>
+                        <pre>
+<span class="b">int</span>[] <span class="v">intArray</span>; <span class="c">// Integer array</span>
+<span class="b">string</span>[] <span class="v">cities</span> = <span class="b">new string</span>[<span class="i">3</span>]; <span class="c">// String array of size 3</span>
+<span class="v">cities</span>[<span class="i">0</span>] = <span class="str">"Prague"</span>; <span class="c">// Assigning value at index 0</span>
+
+<span class="c">// Declare and add values into an array in a single statement;
+// Size is based on the number of elements inside curly braces</span>
+<span class="b">int</span>[] <span class="v">evenNums</span> = {<span class="i">2</span>, <span class="i">4</span>, <span class="i">6</span>, <span class="i">8</span>, <span class="i">10</span>};
+<span class="b">var </span><span class="v">evenNums2</span> = <span class="b">new int</span>[]{<span class="i">2</span>, <span class="i">4</span>, <span class="i">6</span>, <span class="i">8</span>, <span class="i">10</span>}; <span class="c">// or with var and new</span>
+<span class="error">var evenNumsInvalid = {2, 4, 6, 8, 10};</span> <span class="c">// --> Error</span></pre>
+                        <p>ArrayList is a collection of elements of the same or various data types (non-generic collection) with dynamic size. It has some useful methods not available with Arrays (e.g. Reverse, Contains, Sort). The class is in the System.Collections namespace.</p>
+                        <pre>
+<span class="s">using </span><span class="t">System</span>.<span class="t">Collections</span>;
+
+<span class="t">ArrayList </span><span class="v">myArrayList</span> = <span class="b">new </span><span class="t">ArrayList</span>(); <span class="c">// Create empty ArrayList</span>
+<span class="b">var</span> <span class="v">arList2</span> = <span class="b">new </span><span class="t">ArrayList</span>(){<span class="i">2</span>, <span class="str">"Steve"</span>, <span class="str">' '</span>, <span class="b">true</span>, <span class="i">4.5</span>, <span class="b">null</span>};
+<span class="c">// An explicit casting to the appropriate types is required, 
+// or use the var variable when accessing values</span>
+<span class="b">string </span><span class="v">item</span> = (<span class="b">string</span>)<span class="v">arList2</span>[<span class="i">1</span>];
+<span class="b">var </span><span class="v">item2</span> = <span class="v">arList2</span>[<span class="i">1</span>];
+<span class="v">arList2</span>[<span class="i">2</span>] = <span class="str">"third"</span>; <span class="c">// Changing item by it's index</span>
+<span class="b">int </span><span class="v">length</span> = <span class="v">arList2</span>.<span class="v">Count</span>; <span class="c">// = 6</span>
+
+<span class="v">arList2</span>.<span class="f">Add</span>(<span class="str">"last"</span>); <span class="c">// Add element to the end of the ArrayList</span>
+<span class="v">arList2</span>.<span class="f">Insert</span>(<span class="v">arList2</span>.<span class="v">Count</span> - <span class="i">1</span>, <span class="str">"second last"</span>);
+<span class="v">myArrayList</span>.<span class="f">AddRange</span>(<span class="v">arList2</span>);
+<span class="c">// Add a collection (Array, ArrayList...) to the ArrayList</span>
+
+<span class="v">myArrayList</span>.<span class="f">RemoveAt</span>(<span class="i">0</span>); <span class="c">// Removes item at given index</span>
+<span class="v">myArrayList</span>.<span class="f">Remove</span>(<span class="i">2</span>); <span class="c">// Removes first occurence of given item</span>
+
+<span class="b">var </span><span class="v">unsortedList</span> = <span class="b">new </span><span class="t">ArrayList</span>(){<span class="i">8</span>, -<span class="i">2</span>, <span class="i">84</span>, <span class="i">0</span>, -<span class="i">99</span>};
+<span class="v">unsortedList</span>.<span class="f">Sort</span>(); <span class="c">// Sorts list in ascending order</span>
+<span class="v">unsortedList</span>.<span class="f">Reverse</span>();
+<span class="c">// unsortedList = {84, 8, 0, -2, -99}</span></pre>
+                        <p>List is a collection of elements of the same data type (generic collection) with dynamic size. It has some useful methods like ArrayLists (e.g. Reverse, Contains, Sort). The class is in the System.Collections.Generic namespace. List performs faster and is less error-prone than ArrayList.</p>
+                        <pre>
+<span class="s">using </span><span class="t">System</span>.<span class="t">Collections</span>.<span class="t">Generic</span>;
+
+<span class="t">List</span><<span class="b">int</span>> <span class="v">intList</span> = <span class="b">new </span><span class="t">List</span><<span class="b">int</span>>(); <span class="c">// Create empty List</span>
+<span class="b">var </span><span class="v">strList</span> = <span class="b">new </span><span class="t">List</span><<span class="b">string</span>>(){<span class="str">"Prague"</span>, <span class="str">"London"</span>, <span class="b">null</span>};
+<span class="b">string </span><span class="v">item1</span> = <span class="v">strList</span>[<span class="i">0</span>]; <span class="c">// No need for type casting</span>
+<span class="c">// ... (methods, assigning etc. similar to ArrayList)</span></pre>
+                        <p>Dictionary is a generic collection that stores key-value pairs. Keys must be unique and cannot be null. Values can be null or duplicate. The class is in the System.Collections.Generic namespace.</p>
+                        <pre>
+<span class="s">using </span><span class="t">System</span>.<span class="t">Collections</span>.<span class="t">Generic</span>;
+
+<span class="t">Dictionary</span><<span class="b">int</span>, <span class="b">string</span>> <span class="v">numberNames</span> = <span class="b">new </span><span class="t">Dictionary</span><span class="b">int</span>, <span class="b">string</span>>();
+<span class="b">var </span><span class="v">capitals</span> = <span class="b">new </span><span class="t">Dictionary</span><<span class="b">string</span>, <span class="b">string</span>>(){{<span class="str">"UK"</span>, <span class="str">"London"</span>},
+                                                {<span class="str">"USA"</span>, <span class="str">"Washington"</span>},
+                                                {<span class="str">"India"</span>, <span class="str">"Pune"</span>}};
+
+<span class="v">numberNames</span>.<span class="f">Add</span>(<span class="i">1</span>, <span class="str">"one"</span>); <span class="c">// Adds a new key:value pair to the dictionary</span>
+<span class="v">capitals</span>[<span class="str">"India"</span>] = <span class="str">"New Delhi"</span>; <span class="c">// Changes value with given key</span>
+
+<span class="b">string </span><span class="v">USA</span> = <span class="v">capitals</span>[<span class="str">"USA"</span>]; <span class="c">// = "Washington"</span>
+<span class="error">string Germany = capitals["Germany"]; </span><span class="c">// --> Error (key "Germany" doesn't exist)</span>
+<span class="c">// Use .ContainsKey() to check for an unknown key</span>
+<span class="s">if</span> (<span class="v">capitals</span>.<span class="f">ContainsKey</span>(<span class="str">"Germany"</span>)){
+    <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="v">capitals</span>[<span class="str">"Germany"</span>]);
+}
+
+<span class="v">capitals</span>.<span class="f">Remove</span>(<span class="str">"UK"</span>); <span class="c">// Removes a pair based on given key</span>
+<span class="v">capitals</span>.<span class="f">Clear</span>(); <span class="c">// Removes all pairs</span></pre>
+                        <p>Explicit type casting (conversion):</p>
+                        <pre>
+<span class="b">double </span><span class="v">myDouble</span> = <span class="i">9.78</span>;
+<span class="b">int </span><span class="v">myInt</span> = (<span class="b">int</span>) <span class="v">myDouble</span>; <span class="c">// = 9 (data loss)</span></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2" name="Operators-arithmetic">
+                <h3 class="shared" id="i3">Operators</h3>
+                <h5 class="shared" id="i3_1">Arithmetic</h5>
+                <div class="col-6 col1">
+                    <div class="python">
+                        <img src="img/arithmetic-operation-in-python.png" alt="python operators img" class="img-fluid">
+                        <pre>
+<span class="v">two</span> = <span class="i">2</span> * <span class="i">1</span> <span class="c"># = 2</span>
+<span class="v">sum</span> = <span class="i">2</span> + <span class="v">two</span> <span class="c"># = 4</span>
+<span class="v">sum</span> -= <span class="i">3</span> <span class="c"># = 1</span>
+<span class="v">one_third</span> = <span class="v">sum</span> / <span class="i">3</span> <span class="c"># = 0.333333</span>
+<span class="v">floor_divison</span> = <span class="v">sum</span> // <span class="i">3</span> <span class="c"># = 0</span>
+<span class="v">remainder</span> = <span class="i">5</span> % <span class="i">2</span> <span class="c"># = 1</span>
+<span class="v">square</span> = <span class="i">4</span>**<span class="i">2</span> <span class="c"># = 16</span>
+
+<span class="v">math_problem</span> = <span class="i">2</span> + <span class="i">5</span> * <span class="i">4</span> // <span class="i">2</span> - <span class="i">1</span> <span class="c"># = 11</span>
+<span class="v">math_problem</span> = (<span class="i">2</span> + <span class="i">5</span>) * (<span class="i">4</span> // (<span class="i">2</span> - <span class="i">1</span>)) <span class="c"># = 28</span>
+
+<span class="c"># Have to import math module for square root, ceil methods etc.</span>
+<span class="s">import</span><span class="t"> math</span>
+<span class="v">root</span> = <span class="t">math</span><span class="f">.sqrt</span>(<span class="v">square</span>) <span class="c"># = 4</span>
+<span class="v">ceil</span> = <span class="t">math</span><span class="f">.ceil</span>(<span class="v">sum</span> / <span class="i">3</span>) <span class="c"># = 1</span></pre>
+                    </div>
+                    <div class="cs">
+                        <img src="img/arithmetic_operators_csharp.png" alt="csharp operators img" class="img-fluid">
+                        <pre>
+<span class="b">int </span><span class="v">two</span> = <span class="i">2</span> * <span class="i">1</span>; <span class="c">// = 2</span>
+<span class="b">int </span><span class="v">sum</span> = <span class="i">2</span> + <span class="v">two</span>; <span class="c">// = 4</span>
+<span class="v">sum</span> -= <span class="i">3</span>; <span class="c">// = 1</span>
+<span class="b">float </span><span class="v">one_third</span> = <span class="v">sum</span> / <span class="i">3</span>; <span class="c">// = 0.333333</span>
+<span class="b">float </span><span class="v">remainder</span> = <span class="i">5</span> % <span class="i">2</span>; <span class="c">// = 1</span>
+
+<span class="b">int </span><span class="v">mathProblem</span> = <span class="i">2</span> + <span class="i">5</span> * <span class="i">4</span> / <span class="i">2</span> - <span class="i">1</span>; <span class="c">// = 11</span>
+<span class="b">int </span><span class="v">mathProblem2</span> = (<span class="i">2</span> + <span class="i">5</span>) * (<span class="i">4</span> / (<span class="i">2</span> - <span class="i">1</span>)); <span class="c">// = 28</span>
+
+<span class="v">two</span>++; <span class="c">// Increment int two by 1</span>
+<span class="b">int </span><span class="v">four</span> = <span class="v">two</span>++; <span class="c">// First assign value of int two (3), then increment two</span>
+                  <span class="c"> // four = 3, two = 4</span>
+
+<span class="c">// Have to use Math class for a lot of operations</span>
+<span class="b">double </span><span class="v">round</span> = <span class="v">Math</span>.<span class="f">Round</span>(<span class="v">one_third</span>); <span class="c">// = 0</span>
+<span class="b">double </span><span class="v">floor</span> = <span class="v">Math</span>.<span class="f">Floor</span>(<span class="v">one_third</span>); <span class="c">// = 0</span>
+<span class="b">double </span><span class="v">ceil</span> = <span class="v">Math</span>.<span class="f">Ceiling</span>(<span class="v">one_third</span>); <span class="c">// = 1</span>
+
+<span class="b">double </span><span class="v">square</span> = <span class="v">Math</span>.<span class="f">Pow</span>(<span class="i">4</span>, <span class="i">2</span>); <span class="c">// = 16</span>
+<span class="b">double </span><span class="v">root</span> = <span class="v">Math</span>.<span class="f">Sqrt</span>(<span class="v">square</span>); <span class="c">// = 4</span></pre>
+                    </div>
+                </div>
+                <div class="col-6 col2">
+                    <div class="python">
+                        <img src="img/arithmetic-operation-in-python.png" alt="python operators img" class="img-fluid">
+                        <pre>
+<span class="v">two</span> = <span class="i">2</span> * <span class="i">1</span> <span class="c"># = 2</span>
+<span class="v">sum</span> = <span class="i">2</span> + <span class="v">two</span> <span class="c"># = 4</span>
+<span class="v">sum</span> -= <span class="i">3</span> <span class="c"># = 1</span>
+<span class="v">one_third</span> = <span class="v">sum</span> / <span class="i">3</span> <span class="c"># = 0.333333</span>
+<span class="v">floor_divison</span> = <span class="v">sum</span> // <span class="i">3</span> <span class="c"># = 0</span>
+<span class="v">remainder</span> = <span class="i">5</span> % <span class="i">2</span> <span class="c"># = 1</span>
+<span class="v">square</span> = <span class="i">4</span>**<span class="i">2</span> <span class="c"># = 16</span>
+
+<span class="v">math_problem</span> = <span class="i">2</span> + <span class="i">5</span> * <span class="i">4</span> // <span class="i">2</span> - <span class="i">1</span> <span class="c"># = 11</span>
+<span class="v">math_problem</span> = (<span class="i">2</span> + <span class="i">5</span>) * (<span class="i">4</span> // (<span class="i">2</span> - <span class="i">1</span>)) <span class="c"># = 28</span>
+
+<span class="c"># Have to import math module for square root, ceil methods etc.</span>
+<span class="s">import</span><span class="t"> math</span>
+<span class="v">root</span> = <span class="t">math</span><span class="f">.sqrt</span>(<span class="v">square</span>) <span class="c"># = 4</span>
+<span class="v">ceil</span> = <span class="t">math</span><span class="f">.ceil</span>(<span class="v">sum</span> / <span class="i">3</span>) <span class="c"># = 1</span></pre>
+                    </div>
+                    <div class="cs">
+                        <img src="img/arithmetic_operators_csharp.png" alt="csharp operators img" class="img-fluid">
+                        <pre>
+<span class="b">int </span><span class="v">two</span> = <span class="i">2</span> * <span class="i">1</span>; <span class="c">// = 2</span>
+<span class="b">int </span><span class="v">sum</span> = <span class="i">2</span> + <span class="v">two</span>; <span class="c">// = 4</span>
+<span class="v">sum</span> -= <span class="i">3</span>; <span class="c">// = 1</span>
+<span class="b">float </span><span class="v">one_third</span> = <span class="v">sum</span> / <span class="i">3</span>; <span class="c">// = 0.333333</span>
+<span class="b">float </span><span class="v">remainder</span> = <span class="i">5</span> % <span class="i">2</span>; <span class="c">// = 1</span>
+
+<span class="b">int </span><span class="v">mathProblem</span> = <span class="i">2</span> + <span class="i">5</span> * <span class="i">4</span> / <span class="i">2</span> - <span class="i">1</span>; <span class="c">// = 11</span>
+<span class="b">int </span><span class="v">mathProblem2</span> = (<span class="i">2</span> + <span class="i">5</span>) * (<span class="i">4</span> / (<span class="i">2</span> - <span class="i">1</span>)); <span class="c">// = 28</span>
+
+<span class="v">two</span>++; <span class="c">// Increment int two by 1</span>
+<span class="b">int </span><span class="v">four</span> = <span class="v">two</span>++; <span class="c">// First assign value of int two (3), then increment two</span>
+                  <span class="c"> // four = 3, two = 4</span>
+
+<span class="c">// Have to use Math class for a lot of operations</span>
+<span class="b">double </span><span class="v">round</span> = <span class="v">Math</span>.<span class="f">Round</span>(<span class="v">one_third</span>); <span class="c">// = 0</span>
+<span class="b">double </span><span class="v">floor</span> = <span class="v">Math</span>.<span class="f">Floor</span>(<span class="v">one_third</span>); <span class="c">// = 0</span>
+<span class="b">double </span><span class="v">ceil</span> = <span class="v">Math</span>.<span class="f">Ceiling</span>(<span class="v">one_third</span>); <span class="c">// = 1</span>
+
+<span class="b">double </span><span class="v">square</span> = <span class="v">Math</span>.<span class="f">Pow</span>(<span class="i">4</span>, <span class="i">2</span>); <span class="c">// = 16</span>
+<span class="b">double </span><span class="v">root</span> = <span class="v">Math</span>.<span class="f">Sqrt</span>(<span class="v">square</span>); <span class="c">// = 4</span></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2" name="Operators-logical_relational">
+                <h5 class="shared" id="i3_2">Logical, relational</h5>
+                <div class="col-6 col1">
+                    <div class="python">
+                        <img src="img/LogicalOperators.png" alt="python operators img" class="img-fluid">
+                        <img src="img/Relational-Operators-in-Python.png" alt="python operators img" class="img-fluid mx-auto d-block py-2">
+                        <p>In Python, individual values can evaluate to either True or False. Values that evaluate to False are considered Falsy, values that evaluate to True are considered Truthy.</p>
+                        <b>Falsy values:</b>
+                        <ol>
+                            <li>Empty sequences and collections:</li>
+                            <ul>
+                                <li>Empty lists <code>[]</code></li>
+                                <li>Empty tuples <code>()</code></li>
+                                <li>Empty dictionaries <code>{}</code></li>
+                                <li>Empty sets <code>set()</code></li>
+                                <li>Empty strings <code>""</code></li>
+                                <li>Empty ranges <code>range(0)</code></li>
+                            </ul>
+                            <li>Zero of any numeric type:</li>
+                            <ul>
+                                <li>Integer <code>0</code></li>
+                                <li>Float <code>0.0</code></li>
+                                <li>Complex <code>0j</code></li>
+                            </ul>
+                            <li>Constants:</li>
+                            <ul>
+                                <li><code>None</code></li>
+                                <li><code>False</code></li>
+                            </ul>
+                        </ol>
+                        <b>Truthy values:</b>
+                        <ul>
+                            <li>Non-empty sequences or collections (lists, tuples, strings, dictionaries, sets)</li>
+                            <li>Numeric values that are not zero</li>
+                            <li>Constant <code>True</code></li>
+                        </ul>
+                        <pre>
+<span class="v">none</span> = <span class="b">None</span>
+<span class="v">zero</span> = <span class="i">0</span>
+
+<span class="s">if</span><span class="i"> 1</span> < <span class="i">2</span><span class="b"> and not </span><span class="v">zero</span><span class="b"> or </span><span class="v">none</span>:
+    <span class="f">print</span>(<span class="str">"True"</span>)
+<span class="s">else</span>:
+    <span class="f">print</span>(<span class="str">"False"</span>)
+<span class="c"># Prints: >>>True</span>
+
+<span class="v">some_list</span> = [<span class="str">"apple"</span>, <span class="str">"pear"</span>, <span class="str">"orange"</span>]
+<span class="s">if </span><span class="str">"apple"</span><span class="b"> not in </span><span class="v">some_list</span>:
+    <span class="f">print</span>(<span class="i">1</span>)
+<span class="s">elif </span><span class="v">zero</span> != <span class="i">0</span><span class="b"> and </span><span class="str">"orange"</span><span class="b"> in </span><span class="v">some_list</span><span class="b"> or </span><span class="f">len</span>(<span class="v">some_list</span>) > <span class="i">2</span>:
+    <span class="f">print</span>(<span class="i">2</span>)
+<span class="s">else</span>:
+    <span class="f">print</span>(<span class="i">3</span>)
+<span class="c"># Prints: >>>2</span></pre>
+                    </div>
+                    <div class="cs">
+                        <img src="img/LogicalOperatorsCs.png" alt="cs operators img" class="img-fluid">
+                        <img src="img/Relational-Operators-in-Python.png" alt="cs operators img" class="img-fluid mx-auto d-block py-2">
+                        <p>C# only has literal true and false values. C# is intentionally trying to avoid the pitfalls of other compiled languages like C++ where certain values can be truthy, like '0' or '1', which could allow you to make a syntactical mistake you might not notice until runtime when your code behaves unexpectedly.</p>
+                        <pre>
+<span class="b">int </span><span class="v">zero</span> = <span class="i">0</span>;
+<span class="t">List</span><<span class="b">string</span>> <span class="v">list</span> = <span class="b">new </span><span class="t">List</span><<span class="b">string</span>>(){<span class="str">"apple"</span>, <span class="str">"pear"</span>, <span class="str">"orange"</span>};
+
+<span class="s">if </span>(!<span class="v">list</span>.<span class="f">Contains</span>(<span class="str">"apple"</span>)){
+    <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="i">1</span>);
+}
+<span class="s">else if </span>(<span class="v">zero</span> != <span class="i">0</span> && <span class="v">list</span>.<span class="f">Contains</span>(<span class="str">"orange"</span>) || <span class="v">list</span>.<span class="v">Count</span> > <span class="i">2</span>){
+    <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="i">2</span>);
+}
+<span class="s">else </span>{
+    <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="i">3</span>);
+}
+<span class="c">// Prints: >>>2</span></pre>
+                    </div>
+                </div>
+                <div class="col-6 col2">
+                    <div class="python">
+                        <img src="img/LogicalOperators.png" alt="python operators img" class="img-fluid">
+                        <img src="img/Relational-Operators-in-Python.png" alt="python operators img" class="img-fluid mx-auto d-block py-2">
+                        <p>In Python, individual values can evaluate to either True or False. Values that evaluate to False are considered Falsy, values that evaluate to True are considered Truthy.</p>
+                        <b>Falsy values:</b>
+                        <ol>
+                            <li>Empty sequences and collections:</li>
+                            <ul>
+                                <li>Empty lists <code>[]</code></li>
+                                <li>Empty tuples <code>()</code></li>
+                                <li>Empty dictionaries <code>{}</code></li>
+                                <li>Empty sets <code>set()</code></li>
+                                <li>Empty strings <code>""</code></li>
+                                <li>Empty ranges <code>range(0)</code></li>
+                            </ul>
+                            <li>Zero of any numeric type:</li>
+                            <ul>
+                                <li>Integer <code>0</code></li>
+                                <li>Float <code>0.0</code></li>
+                                <li>Complex <code>0j</code></li>
+                            </ul>
+                            <li>Constants:</li>
+                            <ul>
+                                <li><code>None</code></li>
+                                <li><code>False</code></li>
+                            </ul>
+                        </ol>
+                        <b>Truthy values:</b>
+                        <ul>
+                            <li>Non-empty sequences or collections (lists, tuples, strings, dictionaries, sets)</li>
+                            <li>Numeric values that are not zero</li>
+                            <li>Constant <code>True</code></li>
+                        </ul>
+                        <pre>
+<span class="v">none</span> = <span class="b">None</span>
+<span class="v">zero</span> = <span class="i">0</span>
+
+<span class="s">if</span><span class="i"> 1</span> < <span class="i">2</span><span class="b"> and not </span><span class="v">zero</span><span class="b"> or </span><span class="v">none</span>:
+    <span class="f">print</span>(<span class="str">"True"</span>)
+<span class="s">else</span>:
+    <span class="f">print</span>(<span class="str">"False"</span>)
+<span class="c"># Prints: >>>True</span>
+
+<span class="v">some_list</span> = [<span class="str">"apple"</span>, <span class="str">"pear"</span>, <span class="str">"orange"</span>]
+<span class="s">if </span><span class="str">"apple"</span><span class="b"> not in </span><span class="v">some_list</span>:
+    <span class="f">print</span>(<span class="i">1</span>)
+<span class="s">elif </span><span class="v">zero</span> != <span class="i">0</span><span class="b"> and </span><span class="str">"orange"</span><span class="b"> in </span><span class="v">some_list</span><span class="b"> or </span><span class="f">len</span>(<span class="v">some_list</span>) > <span class="i">2</span>:
+    <span class="f">print</span>(<span class="i">2</span>)
+<span class="s">else</span>:
+    <span class="f">print</span>(<span class="i">3</span>)
+<span class="c"># Prints: >>>2</span></pre>
+                    </div>
+                    <div class="cs">
+                        <img src="img/LogicalOperatorsCs.png" alt="cs operators img" class="img-fluid">
+                        <img src="img/Relational-Operators-in-Python.png" alt="cs operators img" class="img-fluid mx-auto d-block py-2">
+                        <p>C# only has literal true and false values. C# is intentionally trying to avoid the pitfalls of other compiled languages like C++ where certain values can be truthy, like '0' or '1', which could allow you to make a syntactical mistake you might not notice until runtime when your code behaves unexpectedly.</p>
+                        <pre>
+<span class="b">int </span><span class="v">zero</span> = <span class="i">0</span>;
+<span class="t">List</span><<span class="b">string</span>> <span class="v">list</span> = <span class="b">new </span><span class="t">List</span><<span class="b">string</span>>(){<span class="str">"apple"</span>, <span class="str">"pear"</span>, <span class="str">"orange"</span>};
+
+<span class="s">if </span>(!<span class="v">list</span>.<span class="f">Contains</span>(<span class="str">"apple"</span>)){
+    <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="i">1</span>);
+}
+<span class="s">else if </span>(<span class="v">zero</span> != <span class="i">0</span> && <span class="v">list</span>.<span class="f">Contains</span>(<span class="str">"orange"</span>) || <span class="v">list</span>.<span class="v">Count</span> > <span class="i">2</span>){
+    <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="i">2</span>);
+}
+<span class="s">else </span>{
+    <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="i">3</span>);
+}
+<span class="c">// Prints: >>>2</span></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2" name="Loops-For_loop_Foreach">
+                <h3 class="shared" id="i4">Loops</h3>
+                <h5 class="shared" id="i4_1">For loop, Foreach</h5>
+                <div class="col-6 col1">
+                    <div class="python">
+                        <pre>
+<span class="s">for </span><span class="v">i</span><span class="s"> in </span><span class="t">range</span>(<span class="i">3</span>): <span class="c"># Prints: >>>0</span>
+    <span class="f">print</span>(<span class="v">i</span>)       <span class="c">#         >>>1</span>
+                   <span class="c">#         >>>2</span>
+
+<span class="v">flat_list</span> = []
+<span class="v">matrix</span> = [[<span class="i">1</span>, <span class="i">2</span>], [<span class="i">5</span>, <span class="i">0</span>]]
+<span class="s">for </span><span class="v">i</span><span class="s"> in </span><span class="v">matrix</span>:            <span class="c"># Prints: >>>1</span>
+    <span class="s">for </span><span class="v">j</span><span class="s"> in </span><span class="v">i</span>:             <span class="c">#         >>>2</span>
+        <span class="f">print</span>(<span class="v">j</span>)            <span class="c">#         >>>5</span>
+        <span class="v">flat_list</span><span class="f">.append</span>(<span class="v">j</span>) <span class="c">#         >>>0</span>
+
+<span class="s">for </span><span class="v">index</span>, <span class="v">item</span><span class="s"> in </span><span class="t">enumerate</span>(<span class="v">flat_list</span>): <span class="c"># Prints: >>>0: 1</span>
+    <span class="f">print</span>(<span class="b">f</span><span class="str">"</span><span class="b">{</span><span class="v">index</span><span class="b">}</span><span class="str">: </span><span class="b">{</span><span class="v">item</span><span class="b">}</span><span class="str">"</span>)            <span class="c">#         >>>1: 2</span>
+                                         <span class="c">#         >>>2: 5</span>
+                                         <span class="c">#         >>>3: 0</span></pre>
+                    </div>
+                    <div class="cs">
+                        <pre>
+<span class="s">for </span>(<span class="b">int </span><span class="v">i</span> = <span class="i">0</span>; <span class="v">i</span> < <span class="i">3</span>; <span class="v">i</span>++){     <span class="c">// Prints: >>>0</span>
+    <span class="v">System</span>.<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="v">i</span>); <span class="c">//         >>>1</span>
+}                                <span class="c">//         >>>2</span>
+
+<span class="t">List</span><<span class="b">int</span>> <span class="v">flat_list</span> = <span class="b">new </span><span class="t">List</span><<span class="b">int</span>>();
+<span class="b">var </span><span class="v">matrix</span> = <span class="b">new int</span>[,]{{<span class="i">1</span>, <span class="i">2</span>}, {<span class="i">5</span>, <span class="i">0</span>}};
+<span class="c">// Create a multidimensional array (matrix);
+// Not a jagged array (array of arrays)!</span>
+<span class="s">foreach </span>(<span class="b">int </span><span class="v">i</span><span class="b"> in </span><span class="v">matrix</span>){ <span class="c">// Prints: >>>1</span>
+    <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="v">i</span>);  <span class="c">//         >>>2</span>
+    <span class="v">flat_list</span>.<span class="f">Add</span>(<span class="v">i</span>);      <span class="c">//         >>>5</span>
+}                          <span class="c">//         >>>0</span></pre>
+                    </div>
+                </div>
+                <div class="col-6 col2">
+                    <div class="python">
+                        <pre>
+<span class="s">for </span><span class="v">i</span><span class="s"> in </span><span class="t">range</span>(<span class="i">3</span>): <span class="c"># Prints: >>>0</span>
+    <span class="f">print</span>(<span class="v">i</span>)       <span class="c">#         >>>1</span>
+                    <span class="c">#         >>>2</span>
+
+<span class="v">flat_list</span> = []
+<span class="v">matrix</span> = [[<span class="i">1</span>, <span class="i">2</span>], [<span class="i">5</span>, <span class="i">0</span>]]
+<span class="s">for </span><span class="v">i</span><span class="s"> in </span><span class="v">matrix</span>:            <span class="c"># Prints: >>>1</span>
+    <span class="s">for </span><span class="v">j</span><span class="s"> in </span><span class="v">i</span>:             <span class="c">#         >>>2</span>
+        <span class="f">print</span>(<span class="v">j</span>)            <span class="c">#         >>>5</span>
+        <span class="v">flat_list</span><span class="f">.append</span>(<span class="v">j</span>) <span class="c">#         >>>0</span>
+
+<span class="s">for </span><span class="v">index</span>, <span class="v">item</span><span class="s"> in </span><span class="t">enumerate</span>(<span class="v">flat_list</span>): <span class="c"># Prints: >>>0: 1</span>
+    <span class="f">print</span>(<span class="b">f</span><span class="str">"</span><span class="b">{</span><span class="v">index</span><span class="b">}</span><span class="str">: </span><span class="b">{</span><span class="v">item</span><span class="b">}</span><span class="str">"</span>)            <span class="c">#         >>>1: 2</span>
+                                            <span class="c">#         >>>2: 5</span>
+                                            <span class="c">#         >>>3: 0</span></pre>
+                    </div>
+                    <div class="cs">
+                        <pre>
+<span class="s">for </span>(<span class="b">int </span><span class="v">i</span> = <span class="i">0</span>; <span class="v">i</span> < <span class="i">3</span>; <span class="v">i</span>++){     <span class="c">// Prints: >>>0</span>
+    <span class="v">System</span>.<span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="v">i</span>); <span class="c">//         >>>1</span>
+}                                <span class="c">//         >>>2</span>
+
+<span class="t">List</span><<span class="b">int</span>> <span class="v">flat_list</span> = <span class="b">new </span><span class="t">List</span><<span class="b">int</span>>();
+<span class="b">var </span><span class="v">matrix</span> = <span class="b">new int</span>[,]{{<span class="i">1</span>, <span class="i">2</span>}, {<span class="i">5</span>, <span class="i">0</span>}};
+<span class="c">// Create a multidimensional array (matrix);
+// Not a jagged array (array of arrays)!</span>
+<span class="s">foreach </span>(<span class="b">int </span><span class="v">i</span><span class="b"> in </span><span class="v">matrix</span>){ <span class="c">// Prints: >>>1</span>
+    <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="v">i</span>);  <span class="c">//         >>>2</span>
+    <span class="v">flat_list</span>.<span class="f">Add</span>(<span class="v">i</span>);      <span class="c">//         >>>5</span>
+}                          <span class="c">//         >>>0</span></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2" name="Loops-While_loop">
+                <h5 class="shared" id="i4_2">While loop</h5>
+                <div class="col-6 col1">
+                    <div class="python">
+                        <pre>
+<span class="v">counter</span> = <span class="i">1</span>
+<span class="s">while </span><span class="f">counter</span> <= <span class="i">10</span>:
+    <span class="s">if </span><span class="v">counter</span> == <span class="i">9</span>:
+        <span class="v">counter</span> += <span class="i">1</span>
+        <span class="s">continue</span>
+    <span class="f">print</span>(<span class="v">counter</span>)
+    <span class="v">counter</span> += <span class="i">1</span>
+<span class="c"># Counts from 1 to 10, skipping 9</span>
+
+<span class="c"># Infinite loop breaking on correct input</span>
+<span class="s">while </span><span class="b">True</span>:
+    <span class="v">password</span> = <span class="f">input</span>(<span class="str">"password: "</span>) <span class="c"># Get user input from console</span>
+    <span class="s">if </span><span class="v">password</span> == <span class="str">"1234"</span>:
+        <span class="s">break</span></pre>
+                    </div>
+                    <div class="cs">
+                        <pre>
+<span class="b">int </span><span class="v">counter</span> = <span class="i">1</span>;
+<span class="s">while </span>(<span class="v">counter</span> <= <span class="i">10</span>){
+    <span class="s">if </span>(<span class="v">counter</span> == <span class="i">9</span>){
+        <span class="v">counter</span>++;
+        <span class="s">continue</span>;
+    }
+    <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="v">counter</span>);
+    <span class="v">counter</span>++;
+}
+<span class="c">// Counts from 1 to 10, skipping 9</span>
+
+<span class="c">// Infinite loop breaking on correct input</span>
+<span class="s">while </span>(<span class="b">true</span>){
+    <span class="v">Console</span>.<span class="f">Write</span>(<span class="str">"password: "</span>);
+    <span class="b">var </span><span class="v">password</span> = <span class="v">Console</span>.<span class="f">ReadLine</span>(); <span class="c">// Get user input from console</span>
+    <span class="s">if </span>(<span class="v">password</span> == <span class="str">"1234"</span>){
+        <span class="s">break;</span>
+    }
+}</pre>
+                    </div>
+                </div>
+                <div class="col-6 col2">
+                    <div class="python">
+                        <pre>
+<span class="v">counter</span> = <span class="i">1</span>
+<span class="s">while </span><span class="f">counter</span> <= <span class="i">10</span>:
+    <span class="s">if </span><span class="v">counter</span> == <span class="i">9</span>:
+        <span class="v">counter</span> += <span class="i">1</span>
+        <span class="s">continue</span>
+    <span class="f">print</span>(<span class="v">counter</span>)
+    <span class="v">counter</span> += <span class="i">1</span>
+<span class="c"># Counts from 1 to 10, skipping 9</span>
+
+<span class="c"># Infinite loop breaking on correct input</span>
+<span class="s">while </span><span class="b">True</span>:
+    <span class="v">password</span> = <span class="f">input</span>(<span class="str">"password: "</span>) <span class="c"># Get user input from console</span>
+    <span class="s">if </span><span class="v">password</span> == <span class="str">"1234"</span>:
+        <span class="s">break</span></pre>
+                    </div>
+                    <div class="cs">
+                        <pre>
+<span class="b">int </span><span class="v">counter</span> = <span class="i">1</span>;
+<span class="s">while </span>(<span class="v">counter</span> <= <span class="i">10</span>){
+    <span class="s">if </span>(<span class="v">counter</span> == <span class="i">9</span>){
+        <span class="v">counter</span>++;
+        <span class="s">continue</span>;
+    }
+    <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="v">counter</span>);
+    <span class="v">counter</span>++;
+}
+<span class="c">// Counts from 1 to 10, skipping 9</span>
+
+<span class="c">// Infinite loop breaking on correct input</span>
+<span class="s">while </span>(<span class="b">true</span>){
+    <span class="v">Console</span>.<span class="f">Write</span>(<span class="str">"password: "</span>);
+    <span class="b">var </span><span class="v">password</span> = <span class="v">Console</span>.<span class="f">ReadLine</span>(); <span class="c">// Get user input from console</span>
+    <span class="s">if </span>(<span class="v">password</span> == <span class="str">"1234"</span>){
+        <span class="s">break;</span>
+    }
+}</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2" name="OOP">
+                <h3 class="shared" id="i5">OOP</h3>
+                <div class="col-6 col1">
+                    <div class="python">
+                        <p>Python is a multi-paradigm programming language. It supports different programming approaches. One of the popular approaches to solve a programming problem is by creating objects. This is known as Object-Oriented Programming (OOP).</p>
+                    </div>
+                    <div class="cs">
+                        <p>C# is an object-oriented programming language. All the previous examples are written inside a method inside a class.</p>
+                        <pre>
+<span class="b">class </span><span class="t">Program</span>
+{
+    <span class="b">static void </span><span class="f">Main</span>(<span class="b">string</span>[] <span class="v">args</span>)
+    {
+        <span class="c">// Code is here</span>
+        <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"Hello world!"</span>);
+    }
+}</pre>
+                        <p><b>Static</b> method (or field, property) isn't accessible from an object and is common to the whole class. You cannot create an object of a static class.</p>
+                        <p><b>Void</b> keyword is a return type if your method doesn't return anything. If a method would return an integer, the keyword would be <b>int</b>.</p>
+                        <p>Access modifiers are used to set the access level/visibility for classes, fields, methods and properties.</p>
+                        <img src="img/modi.jpg" alt="cs access img" class="img-fluid mx-auto d-block py-2">
+                        <p>There are also two combinations: protected internal and private protected.</p>
+                    </div>
+                </div>
+                <div class="col-6 col2">
+                    <div class="python">
+                        <p>Python is a multi-paradigm programming language. It supports different programming approaches. One of the popular approaches to solve a programming problem is by creating objects. This is known as Object-Oriented Programming (OOP).</p>
+                    </div>
+                    <div class="cs">
+                        <p>C# is an object-oriented programming language. All the previous examples are written inside a method inside a class.</p>
+                        <pre>
+<span class="b">class </span><span class="t">Program</span>
+{
+    <span class="b">static void </span><span class="f">Main</span>(<span class="b">string</span>[] <span class="v">args</span>)
+    {
+        <span class="c">// Code is here</span>
+        <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"Hello world!"</span>);
+    }
+}</pre>
+                        <p><b>Static</b> method (or field, property) isn't accessible from an object and is common to the whole class. You cannot create an object of a static class.</p>
+                        <p><b>Void</b> keyword is a return type if your method doesn't return anything. If a method would return an integer, the keyword would be <b>int</b>.</p>
+                        <p>Access modifiers are used to set the access level/visibility for classes, fields, methods and properties.</p>
+                        <img src="img/modi.jpg" alt="cs access img" class="img-fluid mx-auto d-block py-2">
+                        <p>There are also two combinations: protected internal and private protected.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2" name="OOP_Example">
+                <h5 class="shared" id="i5_1">OOP Example</h5>
+                <div class="col-6 col1">
+                    <div class="python">
+                        <pre>
+<span class="b">class </span><span class="t">Car</span>:
+    <span class="v">wheels</span> = <span class="i">4</span>
+    <span class="c"># Every object of this class will have this wheels variable</span>
+    
+    <span class="b">def </span><span class="f">__init__</span>(<span class="v">self</span>, <span class="v">color</span>, <span class="v">type</span>, <span class="v">age</span>, <span class="v">serial</span>, <span class="v">fuel</span> = <span class="str">"diesel"</span>):
+        <span class="v">self</span>.<span class="v">color</span> = <span class="v">color</span>
+        <span class="v">self</span>.<span class="v">type</span> = <span class="v">type</span>
+        <span class="v">self</span>.<span class="v">age</span> = <span class="v">age</span>
+        <span class="v">self</span>.<span class="v">fuel</span> = <span class="v">fuel</span>
+        <span class="v">self</span>.<span class="v">_serial_number</span> = <span class="v">serial</span>
+        
+    <span class="c"># Make a read-only property serial_number using a decorator</span>
+    <span class="c"># Note this still allows changing _serial_number variable</span>
+    <span class="f">@</span><span class="t">property</span>
+    <span class="b">def </span><span class="v">serial_number</span>(<span class="v">self</span>):
+        <span class="s">return </span><span class="v">self</span>.<span class="v">_serial_number</span>
+
+    <span class="c"># Add setter to serial_number property so it's no longer read-only</span>
+    <span class="f">@</span><span class="v">serial_number</span>.<span class="f">setter</span>
+    <span class="b">def </span><span class="v">serial_number</span>(<span class="v">self</span>, <span class="v">number</span>):
+        <span class="v">self</span>.<span class="v">_serial_number</span> = <span class="v">number</span>
+    
+    <span class="c"># Basic class method</span>
+    <span class="b">def </span><span class="f">drive</span>(<span class="v">self</span>):
+        <span class="f">print</span>(<span class="str">"Car moved 1 meter forwards."</span>)
+        
+
+
+
+
+
+
+
+
+
+
+<span class="c"># Create a new Car object with mandatory parameters</span>
+<span class="v">car1</span> = <span class="t">Car</span>(<span class="str">"green"</span>, <span class="str">"toyota"</span>, <span class="i">7</span>, <span class="i">648612318</span>)
+<span class="v">car2</span> = <span class="t">Car</span>(<span class="str">"red"</span>, <span class="str">"audi"</span>, <span class="i">2</span>, <span class="i">456894125</span>, <span class="str">"gasoline"</span>)
+<span class="f">print</span>(<span class="v">car1</span>.<span class="v">wheels</span>, <span class="v">car1</span>.<span class="v">color</span>, <span class="v">car1</span>.<span class="v">age</span>, <span class="v">car1</span>.<span class="v">serial_number</span>, <span class="v">car1</span>.<span class="v">fuel</span>)
+<span class="f">print</span>(<span class="v">car2</span>.<span class="v">wheels</span>, <span class="v">car2</span>.<span class="v">color</span>, <span class="v">car2</span>.<span class="v">age</span>, <span class="v">car2</span>.<span class="v">serial_number</span>, <span class="v">car2</span>.<span class="v">fuel</span>)
+<span class="c"># Prints: >>>4 green 7 648612318 diesel</span>
+<span class="c">#         >>>4 red 2 456894125 gasoline</span>
+
+<span class="t">Car</span>.<span class="v">wheels</span> = <span class="i">6</span>
+<span class="v">car1</span>.<span class="v">color</span> = <span class="str">"blue"</span>
+<span class="v">car1</span>.<span class="f">drive</span>()
+<span class="f">print</span>(<span class="v">car1</span>.<span class="v">wheels</span>, <span class="v">car1</span>.<span class="v">color</span>, <span class="v">car1</span>.<span class="v">age</span>, <span class="v">car1</span>.<span class="v">serial_number</span>, <span class="v">car1</span>.<span class="v">fuel</span>)</span>
+<span class="f">print</span>(<span class="v">car2</span>.<span class="v">wheels</span>, <span class="v">car2</span>.<span class="v">color</span>, <span class="v">car2</span>.<span class="v">age</span>, <span class="v">car2</span>.<span class="v">serial_number</span>, <span class="v">car2</span>.<span class="v">fuel</span>)
+<span class="c"># Prints: >>>6 blue 8 648612318 diesel</span>
+<span class="c">#         >>>6 red 2 456894125 gasoline</span></pre>
+                    </div>
+                    <div class="cs">
+                        <pre>
+<span class="b">class </span><span class="t">Car</span>
+{
+    <span class="c">// Static parameter common to whole class</span>
+    <span class="b">public static int </span><span class="v">wheels</span> = <span class="i">4</span>;
+    <span class="c">// Property that returns and changes static wheels</span>
+    <span class="b">public int </span><span class="v">Wheels</span>
+    {
+        <span class="b">get </span>{<span class="s">return </span><span class="v">wheels</span>;}
+        <span class="b">set </span>{<span class="v">wheels</span> = <span class="v">value</span>;}
+    }
+    <span class="b">public string </span><span class="v">Color</span>;
+    <span class="b">public string </span><span class="v">Type</span>;
+    <span class="b">public int </span><span class="v">Age</span>;
+    <span class="b">public string </span><span class="v">Fuel</span>;
+    <span class="b">private int </span><span class="v">_serialNumber</span>; <span class="c">// Private field (default)</span>
+    <span class="c">// Read-only property SerialNumber</span>
+    <span class="b">public int </span><span class="v">SerialNumber</span> {<span class="b">get </span>{<span class="s">return </span><span class="v">_serialNumber</span>;}}
+    <span class="c">// Default short-hand property would be:
+    // public int SerialNumber {get; set;}</span>
+
+    <span class="c">// Constructors (1st is for non-mandatory fuel value)</span>
+    <span class="b">public </span><span class="f">Car</span>(<span class="b">string </span><span class="v">color</span>, <span class="b">string </span><span class="v">type</span>, <span class="b">int </span><span class="v">age</span>, <span class="b">int </span><span class="v">serial</span>)
+    {
+        <span class="v">Color</span> = <span class="v">color</span>;
+        <span class="v">Type</span> = <span class="v">type</span>;
+        <span class="v">Age</span> = <span class="v">age</span>;
+        <span class="v">_serialNumber</span> = <span class="v">serial</span>;
+        <span class="v">Fuel</span> = <span class="str">"diesel"</span>;
+    }
+    <span class="b">public </span><span class="f">Car</span>(<span class="b">string </span><span class="v">color</span>, <span class="b">string </span><span class="v">type</span>, <span class="b">int </span><span class="v">age</span>, <span class="b">int </span><span class="v">serial</span>, <span class="b">string</span> <span class="v">fuel</span>)
+    {
+        <span class="v">Color</span> = <span class="v">color</span>;
+        <span class="v">Type</span> = <span class="v">type</span>;
+        <span class="v">Age</span> = <span class="v">age</span>;
+        <span class="v">_serialNumber</span> = <span class="v">serial</span>;
+        <span class="v">Fuel</span> = <span class="v">fuel</span>;
+    }
+
+    <span class="c">// Basic method, returns nothing - void</span>
+    <span class="b">public void </span><span class="f">Drive</span>()
+    {
+        <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"Car moved 1 meter forwards."</span>);
+    }
+}
+
+<span class="b">class </span><span class="t">Program</span>
+{
+    <span class="b">static void </span><span class="f">Main</span>(<span class="b">string</span>[] <span class="v">args</span>)
+    {
+        <span class="c">// Create a new Car object with mandatory parameters</span>
+        <span class="t">Car </span><span class="v">car1</span> = <span class="b">new </span><span class="t">Car</span>(<span class="str">"green"</span>, <span class="str">"toyota"</span>, <span class="i">7</span>, <span class="i">648612318</span>);
+        <span class="t">Car </span><span class="v">car1</span> = <span class="b">new </span><span class="t">Car</span>(<span class="str">"green"</span>, <span class="str">"audi"</span>, <span class="i">2</span>, <span class="i">456894125</span>), <span class="str">gasoline</span>
+        <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"{0} {1} {2} {3} {4}"</span>, <span class="v">car1</span>.<span class="v">Wheels</span>, <span class="v">car1</span>.<span class="v">Color</span>, 
+                            <span class="v">car1</span>.<span class="v">Age</span>, <span class="v">car1</span>.<span class="v">SerialNumber</span>, <span class="v">car1</span>.<span class="v">Fuel</span>);
+        <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"{0} {1} {2} {3} {4}"</span>, <span class="v">car1</span>.<span class="v">Wheels</span>, <span class="v">car1</span>.<span class="v">Color</span>, 
+                            <span class="v">car1</span>.<span class="v">Age</span>, <span class="v">car1</span>.<span class="v">SerialNumber</span>, <span class="v">car1</span>.<span class="v">Fuel</span>);
+        <span class="c">// Prints: >>>4 green 7 648612318 diesel
+        //         >>>4 red 2 456894125 gasoline</span>
+
+        <span class="t">Car</span>.<span class="v">wheels</span> = <span class="i">6</span>;
+        <span class="v">car1</span>.<span class="v">Color</span> = <span class="str">"blue"</span>;
+        <span class="v">car1</span>.<span class="f">Drive</span>();
+        <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"{0} {1} {2} {3} {4}"</span>, <span class="v">car1</span>.<span class="v">Wheels</span>, <span class="v">car1</span>.<span class="v">Color</span>, 
+                            <span class="v">car1</span>.<span class="v">Age</span>, <span class="v">car1</span>.<span class="v">SerialNumber</span>, <span class="v">car1</span>.<span class="v">Fuel</span>);
+        <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"{0} {1} {2} {3} {4}"</span>, <span class="v">car1</span>.<span class="v">Wheels</span>, <span class="v">car1</span>.<span class="v">Color</span>, 
+                            <span class="v">car1</span>.<span class="v">Age</span>, <span class="v">car1</span>.<span class="v">SerialNumber</span>, <span class="v">car1</span>.<span class="v">Fuel</span>);
+        <span class="c">// Prints: >>>6 blue 7 648612318 diesel
+        //         >>>6 red 2 456894125 gasoline</span>
+    }
+}</pre>
+                    </div>
+                </div>
+                <div class="col-6 col2">
+                    <div class="python">
+                        <pre>
+<span class="b">class </span><span class="t">Car</span>:
+    <span class="v">wheels</span> = <span class="i">4</span>
+    <span class="c"># Every object of this class will have this wheels variable</span>
+    
+    <span class="b">def </span><span class="f">__init__</span>(<span class="v">self</span>, <span class="v">color</span>, <span class="v">type</span>, <span class="v">age</span>, <span class="v">serial</span>, <span class="v">fuel</span> = <span class="str">"diesel"</span>):
+        <span class="v">self</span>.<span class="v">color</span> = <span class="v">color</span>
+        <span class="v">self</span>.<span class="v">type</span> = <span class="v">type</span>
+        <span class="v">self</span>.<span class="v">age</span> = <span class="v">age</span>
+        <span class="v">self</span>.<span class="v">fuel</span> = <span class="v">fuel</span>
+        <span class="v">self</span>.<span class="v">_serial_number</span> = <span class="v">serial</span>
+        
+    <span class="c"># Make a read-only property serial_number using a decorator</span>
+    <span class="c"># Note this still allows changing _serial_number variable</span>
+    <span class="f">@</span><span class="t">property</span>
+    <span class="b">def </span><span class="v">serial_number</span>(<span class="v">self</span>):
+        <span class="s">return </span><span class="v">self</span>.<span class="v">_serial_number</span>
+
+    <span class="c"># Add setter to serial_number property so it's no longer read-only</span>
+    <span class="f">@</span><span class="v">serial_number</span>.<span class="f">setter</span>
+    <span class="b">def </span><span class="v">serial_number</span>(<span class="v">self</span>, <span class="v">number</span>):
+        <span class="v">self</span>.<span class="v">_serial_number</span> = <span class="v">number</span>
+    
+    <span class="c"># Basic class method</span>
+    <span class="b">def </span><span class="f">drive</span>(<span class="v">self</span>):
+        <span class="f">print</span>(<span class="str">"Car moved 1 meter forwards."</span>)
+        
+
+
+
+
+
+
+
+
+
+
+<span class="c"># Create a new Car object with mandatory parameters</span>
+<span class="v">car1</span> = <span class="t">Car</span>(<span class="str">"green"</span>, <span class="str">"toyota"</span>, <span class="i">7</span>, <span class="i">648612318</span>)
+<span class="v">car2</span> = <span class="t">Car</span>(<span class="str">"red"</span>, <span class="str">"audi"</span>, <span class="i">2</span>, <span class="i">456894125</span>, <span class="str">"gasoline"</span>)
+<span class="f">print</span>(<span class="v">car1</span>.<span class="v">wheels</span>, <span class="v">car1</span>.<span class="v">color</span>, <span class="v">car1</span>.<span class="v">age</span>, <span class="v">car1</span>.<span class="v">serial_number</span>, <span class="v">car1</span>.<span class="v">fuel</span>)
+<span class="f">print</span>(<span class="v">car2</span>.<span class="v">wheels</span>, <span class="v">car2</span>.<span class="v">color</span>, <span class="v">car2</span>.<span class="v">age</span>, <span class="v">car2</span>.<span class="v">serial_number</span>, <span class="v">car2</span>.<span class="v">fuel</span>)
+<span class="c"># Prints: >>>4 green 7 648612318 diesel</span>
+<span class="c">#         >>>4 red 2 456894125 gasoline</span>
+
+<span class="t">Car</span>.<span class="v">wheels</span> = <span class="i">6</span>
+<span class="v">car1</span>.<span class="v">color</span> = <span class="str">"blue"</span>
+<span class="v">car1</span>.<span class="f">drive</span>()
+<span class="f">print</span>(<span class="v">car1</span>.<span class="v">wheels</span>, <span class="v">car1</span>.<span class="v">color</span>, <span class="v">car1</span>.<span class="v">age</span>, <span class="v">car1</span>.<span class="v">serial_number</span>, <span class="v">car1</span>.<span class="v">fuel</span>)</span>
+<span class="f">print</span>(<span class="v">car2</span>.<span class="v">wheels</span>, <span class="v">car2</span>.<span class="v">color</span>, <span class="v">car2</span>.<span class="v">age</span>, <span class="v">car2</span>.<span class="v">serial_number</span>, <span class="v">car2</span>.<span class="v">fuel</span>)
+<span class="c"># Prints: >>>6 blue 8 648612318 diesel</span>
+<span class="c">#         >>>6 red 2 456894125 gasoline</span></pre>
+                    </div>
+                    <div class="cs">
+                        <pre>
+<span class="b">class </span><span class="t">Car</span>
+{
+    <span class="c">// Static parameter common to whole class</span>
+    <span class="b">public static int </span><span class="v">wheels</span> = <span class="i">4</span>;
+    <span class="c">// Property that returns and changes static wheels</span>
+    <span class="b">public int </span><span class="v">Wheels</span>
+    {
+        <span class="b">get </span>{<span class="s">return </span><span class="v">wheels</span>;}
+        <span class="b">set </span>{<span class="v">wheels</span> = <span class="v">value</span>;}
+    }
+    <span class="b">public string </span><span class="v">Color</span>;
+    <span class="b">public string </span><span class="v">Type</span>;
+    <span class="b">public int </span><span class="v">Age</span>;
+    <span class="b">public string </span><span class="v">Fuel</span>;
+    <span class="b">private int </span><span class="v">_serialNumber</span>; <span class="c">// Private field (default)</span>
+    <span class="c">// Read-only property SerialNumber</span>
+    <span class="b">public int </span><span class="v">SerialNumber</span> {<span class="b">get </span>{<span class="s">return </span><span class="v">_serialNumber</span>;}}
+    <span class="c">// Default short-hand property would be:
+    // public int SerialNumber {get; set;}</span>
+
+    <span class="c">// Constructors (1st is for non-mandatory fuel value)</span>
+    <span class="b">public </span><span class="f">Car</span>(<span class="b">string </span><span class="v">color</span>, <span class="b">string </span><span class="v">type</span>, <span class="b">int </span><span class="v">age</span>, <span class="b">int </span><span class="v">serial</span>)
+    {
+        <span class="v">Color</span> = <span class="v">color</span>;
+        <span class="v">Type</span> = <span class="v">type</span>;
+        <span class="v">Age</span> = <span class="v">age</span>;
+        <span class="v">_serialNumber</span> = <span class="v">serial</span>;
+        <span class="v">Fuel</span> = <span class="str">"diesel"</span>;
+    }
+    <span class="b">public </span><span class="f">Car</span>(<span class="b">string </span><span class="v">color</span>, <span class="b">string </span><span class="v">type</span>, <span class="b">int </span><span class="v">age</span>, <span class="b">int </span><span class="v">serial</span>, <span class="b">string</span> <span class="v">fuel</span>)
+    {
+        <span class="v">Color</span> = <span class="v">color</span>;
+        <span class="v">Type</span> = <span class="v">type</span>;
+        <span class="v">Age</span> = <span class="v">age</span>;
+        <span class="v">_serialNumber</span> = <span class="v">serial</span>;
+        <span class="v">Fuel</span> = <span class="v">fuel</span>;
+    }
+
+    <span class="c">// Basic method, returns nothing - void</span>
+    <span class="b">public void </span><span class="f">Drive</span>()
+    {
+        <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"Car moved 1 meter forwards."</span>);
+    }
+}
+
+<span class="b">class </span><span class="t">Program</span>
+{
+    <span class="b">static void </span><span class="f">Main</span>(<span class="b">string</span>[] <span class="v">args</span>)
+    {
+        <span class="c">// Create a new Car object with mandatory parameters</span>
+        <span class="t">Car </span><span class="v">car1</span> = <span class="b">new </span><span class="t">Car</span>(<span class="str">"green"</span>, <span class="str">"toyota"</span>, <span class="i">7</span>, <span class="i">648612318</span>);
+        <span class="t">Car </span><span class="v">car1</span> = <span class="b">new </span><span class="t">Car</span>(<span class="str">"green"</span>, <span class="str">"audi"</span>, <span class="i">2</span>, <span class="i">456894125</span>), <span class="str">gasoline</span>
+        <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"{0} {1} {2} {3} {4}"</span>, <span class="v">car1</span>.<span class="v">Wheels</span>, <span class="v">car1</span>.<span class="v">Color</span>, 
+                          <span class="v">car1</span>.<span class="v">Age</span>, <span class="v">car1</span>.<span class="v">SerialNumber</span>, <span class="v">car1</span>.<span class="v">Fuel</span>);
+        <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"{0} {1} {2} {3} {4}"</span>, <span class="v">car1</span>.<span class="v">Wheels</span>, <span class="v">car1</span>.<span class="v">Color</span>, 
+                          <span class="v">car1</span>.<span class="v">Age</span>, <span class="v">car1</span>.<span class="v">SerialNumber</span>, <span class="v">car1</span>.<span class="v">Fuel</span>);
+        <span class="c">// Prints: >>>4 green 7 648612318 diesel
+        //         >>>4 red 2 456894125 gasoline</span>
+
+        <span class="t">Car</span>.<span class="v">wheels</span> = <span class="i">6</span>;
+        <span class="v">car1</span>.<span class="v">Color</span> = <span class="str">"blue"</span>;
+        <span class="v">car1</span>.<span class="f">Drive</span>();
+        <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"{0} {1} {2} {3} {4}"</span>, <span class="v">car1</span>.<span class="v">Wheels</span>, <span class="v">car1</span>.<span class="v">Color</span>, 
+                          <span class="v">car1</span>.<span class="v">Age</span>, <span class="v">car1</span>.<span class="v">SerialNumber</span>, <span class="v">car1</span>.<span class="v">Fuel</span>);
+        <span class="v">Console</span>.<span class="f">WriteLine</span>(<span class="str">"{0} {1} {2} {3} {4}"</span>, <span class="v">car1</span>.<span class="v">Wheels</span>, <span class="v">car1</span>.<span class="v">Color</span>, 
+                          <span class="v">car1</span>.<span class="v">Age</span>, <span class="v">car1</span>.<span class="v">SerialNumber</span>, <span class="v">car1</span>.<span class="v">Fuel</span>);
+        <span class="c">// Prints: >>>6 blue 7 648612318 diesel
+        //         >>>6 red 2 456894125 gasoline</span>
+    }
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

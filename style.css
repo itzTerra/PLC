@@ -1,0 +1,92 @@
+.bg-custom{background-color: darkorange;}
+
+.fas {font-size: 2em;}
+
+.python, .cs, .shared {display: none;}
+
+h3, h5 {text-align: center;}
+
+pre {
+    color: #d4d4d4; /* White */
+    background-color: #1e1e1e;  /* #F4F4F4 - white mode */
+    border: 1px solid #EAEAEA;
+    font-family: Consolas, 'Courier New', monospace;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 10px;
+    margin-left: 0px;
+    margin-bottom: 8px;
+}
+
+code {
+    font-family: Roboto Mono, monospace;
+    color: black;
+    background-color: #d0d0d5;
+}
+
+p {margin-bottom: 10px;}
+
+.nav-pills a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+@media only screen and (min-width: 576px) {
+    #scrollspy {
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #scrollspy {
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #scrollspy {
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #scrollspy {
+        max-width: 1140px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+/*
+@media only screen and (min-width: 1400px) {
+    #scrollspy {
+        margin-left: 82px;
+    }
+}
+*/
+/* Colors:
+function: #dcdcaa
+variable: #7bdcf0
+statements: #c57991
+blue: #32bcb0
+white: #d4d4d4
+int: #b5c077
+string: #ce9178
+teal: #4ec9b0
+*/
+
+.f {color: #dcdcaa;}
+.v {color: #7bdcf0;}
+.s {color: #c57991;}
+.b {color: #358cd6;}
+.c {color: #5e9949;}
+.i {color: #b5c077;}
+.str {color: #ce9178;}
+.t {color: #4ec9b0;}
+.error {color: rgb(196, 0, 0);}
