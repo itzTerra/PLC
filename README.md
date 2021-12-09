@@ -1,2 +1,0 @@
-# itzterra.github.io
-Webhosting
