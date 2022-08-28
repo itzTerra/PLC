@@ -31,7 +31,7 @@ $("#swapper").on('click', function() {
     $("#select1, #select2").trigger('change');
 });
 
-var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-    target: '#scrollspy'
-  })
+// var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+//     target: '#scrollspy'
+// })
 
