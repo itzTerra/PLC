@@ -9,13 +9,25 @@ body{
 
 .bg-custom{background-color: darkorange;}
 
-.python, .cs, .shared {display: none;}
+h1, h2, h3, h4, h5 {text-align: center;}
 
-h3, h5 {text-align: center;}
+.col1 p, .col2 p{
+    display: block;
+}
 
-pre {
-    color: #d4d4d4; /* White */
-    background-color: #1e1e1e;  /* #F4F4F4 - white mode */
+#shared-content{
+    display: none;
+}
+
+#shared-content .col{
+    display: none;
+}
+
+p {margin-bottom: 10px;}
+
+/* pre {
+    color: #d4d4d4; 
+    background-color: #1e1e1e;
     border: 1px solid transparent;
     border-radius: 0.25rem;
     font-family: Consolas, 'Courier New', monospace;
@@ -30,14 +42,12 @@ code {
     font-family: Roboto Mono, monospace;
     color: var(--bs-light);
     background-color: rgba(0, 0, 0, 0.2);
-}
+} */
 
-p {margin-bottom: 10px;}
-
-.nav-pills a {
+/* .nav-pills a {
     padding-top: 5px;
     padding-bottom: 5px;
-}
+} */
 
 /* @media only screen and (min-width: 576px) {
     #scrollspy {
@@ -77,23 +87,3 @@ p {margin-bottom: 10px;}
     }
 }
 */
-/* Colors:
-function: #dcdcaa
-variable: #7bdcf0
-statements: #c57991
-blue: #32bcb0
-white: #d4d4d4
-int: #b5c077
-string: #ce9178
-teal: #4ec9b0
-*/
-
-.f {color: #dcdcaa;}
-.v {color: #7bdcf0;}
-.s {color: #c57991;}
-.b {color: #358cd6;}
-.c {color: #5e9949;}
-.i {color: #b5c077;}
-.str {color: #ce9178;}
-.t {color: #4ec9b0;}
-.error {color: rgb(196, 0, 0);}

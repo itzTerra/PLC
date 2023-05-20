@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="schema.xsd">
+    <syntax>
+    <p>C# is a statically-typed language, which means that it has typed variables.</p>
+    <p>C# uses curly brackets to delimit blocks and semicolons to denote the end of a statement.</p>
+    <p>C# supports strongly typed implicit variable declarations with the keyword var. Typed variables allow us to not assign them any value:</p>
+    <pre><code class="language-cs">
+int myNumber;
+myNumber = 2;
+var myVariable = "string";
+    </code></pre>
+    The C# language does not allow for global variables or functions. All methods and members must be declared within classes. Static members of public classes can substitute for global variables and functions.
+    </syntax>
+    <comments>
+    Comments in C# start with //.
+    <pre><code class="language-cs">
+// This is a comment
+Console.WriteLine("Hello World!"); // This is another comment
+
+/*
+This is a comment
+written in
+more than just one line
+*/
+Console.WriteLine("Hello World!");
+    </code></pre>
+    </comments>
+    <output>
+    <pre><code class="language-cs">
+Console.WriteLine("Hello World!");
+Console.Write("He said: ");
+Console.Write("451");
+Console.WriteLine("!");
+// Prints: >>>Hello World!
+//         >>>He said: 451!
+    </code></pre>
+    <p>Console.WriteLine adds a \n (newline) to the end of the string while Console.Write does not.</p>
+    <p>3 ways of printing "My name is John and I'm 25 years old." using variables:</p>
+    <pre><code class="language-cs">
+string name = "John";
+int age = 25;
+
+// Classic string concatenation
+Console.WriteLine("My name is "+name+" and I'm "+age+" years old.");
+
+// String formatting
+Console.WriteLine(String.Format("My name is {0} and I'm {1} years old.",
+                                name, age)); // or
+Console.WriteLine("My name is {0} and I'm {1} years old.", name, age);
+
+// String interpolation
+Console.WriteLine($"My name is {name} and I'm {age} years old.");
+    </code></pre>
+    Note that all of these implicitly converted int age to string.
+    </output>
+    <datatypes>
+        <general>
+        <img src="img/c-sharp-data-types.jpg" alt="cs types img" class="img-fluid"></img>
+        </general>
+        <boolean>
+        Boolean values are lowercase, default is false.
+        <pre><code class="language-cs">
+bool myBoolean = true;
+bool myBoolean2 = 1 > 2; // = false
+bool defaultBool = default(bool); // = false
+        </code></pre>
+        C# only has literal true and false values. C# is intentionally trying to avoid the pitfalls of other compiled languages like C++ where certain values can be truthy, like '0' or '1', which could allow you to make a syntactical mistake you might not notice until runtime when your code behaves unexpectedly.
+        </boolean>
+        <numeric>
+        Numeric data types include value range. The compiler will give an error if the value goes out of datatype's permitted range.
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Range</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>byte</td>
+                    <td>8-bit unsigned integer</td>
+                    <td>0 to 255</td>
+                </tr>
+                <tr>
+                    <td>short</td>
+                    <td>16-bit signed integer</td>
+                    <td>-32,768 to 32,767</td>
+                </tr>
+                <tr>
+                    <td>int</td>
+                    <td>32-bit signed integer</td>
+                    <td>-2,147,483,648 to 2,147,483,647</td>
+                </tr>
+                <tr>
+                    <td>long</td>
+                    <td>64-bit signed integer</td>
+                    <td><i>long</i></td>
+                </tr>
+                <tr>
+                    <td>float</td>
+                    <td>32-bit Single-precision floating point type</td>
+                    <td>-3.402823e38 to 3.402823e38</td>
+                </tr>
+                <tr>
+                    <td>double</td>
+                    <td>64-bit double-precision floating point type</td>
+                    <td><i>long</i></td>
+                </tr>
+            </tbody>
+        </table>
+        There is also signed byte (sbyte), unsigned versions of others (uint, ulong...) and decimal for financial calculations.
+        </numeric>
+        <string>
+        Strings are sequences of Unicode characters.
+        <pre><code class="language-cs">
+string myString = "bLue skY";
+char myChar = myString[1]; // = 'L'
+myString = myString.ToUpper(); // = BLUE SKY
+        </code></pre>
+        </string>
+        <array>
+        An array is a data structure that stores a fixed number of literal values of the same data type. It can be declared using the type of its elements with square brackets, new keyword, and a size.
+        <pre><code class="language-cs">
+int[] intArray; // Integer array
+string[] cities = new string[3]; // String array of size 3
+cities[0] = "Prague"; // Assigning value at index 0
+
+// Declare and add values into an array in a single statement;
+// Size is based on the number of elements inside curly braces
+int[] evenNums = {2, 4, 6, 8, 10};
+var evenNums2 = new int[]{2, 4, 6, 8, 10}; // or with var and new
+var evenNumsInvalid = {2, 4, 6, 8, 10}; // --> Error
+        </code></pre>
+        </array>
+        <hashtable>
+            Dictionary is a generic collection that stores key-value pairs. Keys must be unique and cannot be null. Values can be null or duplicate. The class is in the System.Collections.Generic namespace.
+            <pre><code class="language-cs">
+using System.Collections.Generic;
+
+Dictionary&lt;int, string&gt; numberNames = new Dictionary&lt;int, string&gt;();
+var capitals = new Dictionary&lt;string, string&gt;(){{"UK", "London"},
+                                                {"USA", "Washington"},
+                                                {"India", "Pune"}};
+
+numberNames.Add(1, "one"); // Adds a new key:value pair to the dictionary
+capitals["India"] = "New Delhi"; // Changes value with given key
+
+string USA = capitals["USA"]; // = "Washington"
+string Germany = capitals["Germany"]; // --&gt; Error (key "Germany" doesn't exist)
+// Use .ContainsKey() to check for an unknown key
+if (capitals.ContainsKey("Germany")){
+    Console.WriteLine(capitals["Germany"]);
+}
+
+capitals.Remove("UK"); // Removes a pair based on given key
+capitals.Clear(); // Removes all pairs
+            </code></pre>
+        </hashtable>
+        <other>
+            <strong>ArrayList</strong> is a collection of elements of the same or various data types (non-generic collection) with dynamic size. It has some useful methods not available with Arrays (e.g. Reverse, Contains, Sort). The class is in the System.Collections namespace.
+            <pre><code class="language-cs">
+using System.Collections;
+
+ArrayList myArrayList = new ArrayList(); // Create empty ArrayList
+var arList2 = new ArrayList(){2, "Steve", ' ', true, 4.5, null};
+// An explicit casting to the appropriate types is required, 
+// or use the var variable when accessing values
+string item = (string)arList2[1];
+var item2 = arList2[1];
+arList2[2] = "third"; // Changing item by it's index
+int length = arList2.Count; // = 6
+
+arList2.Add("last"); // Add element to the end of the ArrayList
+arList2.Insert(arList2.Count - 1, "second last");
+myArrayList.AddRange(arList2);
+// Add a collection (Array, ArrayList...) to the ArrayList
+
+myArrayList.RemoveAt(0); // Removes item at given index
+myArrayList.Remove(2); // Removes first occurence of given item
+
+var unsortedList = new ArrayList(){8, -2, 84, 0, -99};
+unsortedList.Sort(); // Sorts list in ascending order
+unsortedList.Reverse();
+// unsortedList = {84, 8, 0, -2, -99}
+            </code></pre>
+            <strong>List</strong> is a collection of elements of the same data type (generic collection) with dynamic size. It has some useful methods like ArrayLists (e.g. Reverse, Contains, Sort). The class is in the System.Collections.Generic namespace. List performs faster and is less error-prone than ArrayList.
+            <pre><code class="language-cs">
+using System.Collections.Generic;
+
+List&lt;int&gt; intList = new List&lt;int&gt;(); // Create empty List
+var strList = new List&lt;string&gt;(){"Prague", "London", null};
+string item1 = strList[0]; // No need for type casting
+// ... (methods, assigning etc. similar to ArrayList)
+            </code></pre>
+        Explicit type casting (conversion):
+            <pre><code class="language-cs">
+double myDouble = 9.78;
+int myInt = (int) myDouble; // = 9 (data loss)
+            </code></pre>
+        </other>
+    </datatypes>
+    <operators>
+        <arithmetic>
+            <img src="img/arithmetic_operators_csharp.png" alt="csharp operators img" class="img-fluid"></img>
+            <pre><code class="language-cs">
+int two = 2 * 1; // = 2
+int sum = 2 + two; // = 4
+sum -= 3; // = 1
+float one_third = sum / 3; // = 0.333333
+float remainder = 5 % 2; // = 1
+
+int mathProblem = 2 + 5 * 4 / 2 - 1; // = 11
+int mathProblem2 = (2 + 5) * (4 / (2 - 1)); // = 28
+
+two++; // Increment int two by 1
+int four = two++; // First assign value of int two (3), then increment two
+                   // four = 3, two = 4
+
+// Have to use Math class for a lot of operations
+double round = Math.Round(one_third); // = 0
+double floor = Math.Floor(one_third); // = 0
+double ceil = Math.Ceiling(one_third); // = 1
+
+double square = Math.Pow(4, 2); // = 16
+double root = Math.Sqrt(square); // = 4
+            </code></pre>
+        </arithmetic>
+        <logrel>
+            <img src="img/LogicalOperatorsCs.png" alt="cs operators img" class="img-fluid"></img>
+            <img src="img/Relational-Operators-in-Python.png" alt="cs operators img" class="img-fluid mx-auto d-block py-2"></img>
+        </logrel>
+    </operators>
+    <loops>
+        <for>
+        <pre><code class="language-cs">
+for (int i = 0; i &lt; 3; i++){  // Prints: &gt;&gt;&gt;0
+    System.Console.WriteLine(i); //         &gt;&gt;&gt;1
+}                                //         &gt;&gt;&gt;2
+
+List&lt;int&gt; flat_list = new List&lt;int&gt;();
+var matrix = new int[,]{{1, 2}, {5, 0}};
+// Create a multidimensional array (matrix);
+// Not a jagged array (array of arrays)!
+foreach (int i in matrix){ // Prints: &gt;&gt;&gt;1
+    Console.WriteLine(i);  //         &gt;&gt;&gt;2
+    flat_list.Add(i);      //         &gt;&gt;&gt;5
+}                          //         &gt;&gt;&gt;0
+        </code></pre>
+        </for>
+        <while>
+        <pre><code class="language-cs">
+int counter = 1;
+while (counter &lt;= 10){
+    if (counter == 9){
+        counter++;
+        continue;
+    }
+    Console.WriteLine(counter);
+    counter++;
+}
+// Counts from 1 to 10, skipping 9
+
+// Infinite loop breaking on correct input
+while (true){
+    Console.Write("password: ");
+    var password = Console.ReadLine(); // Get user input from console
+    if (password == "1234"){
+        break;
+    }
+}
+        </code></pre>
+        </while>
+    </loops>
+    <OOP>
+        <overview>
+        C# is an object-oriented programming language. All the previous examples are written inside a method inside a class.
+        <pre><code class="language-cs">
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Code is here
+        Console.WriteLine("Hello world!");
+    }
+}
+        </code></pre>
+        <p><strong>Static</strong> method (or field, property) isn't accessible from an object and is common to the whole class. You cannot create an object of a static class.</p>
+        <p><strong>Void</strong> keyword is a return type if your method doesn't return anything. If a method would return an integer, the keyword would be int.</p>
+        <p>Access modifiers are used to set the access level/visibility for classes, fields, methods and properties.</p>
+        <img src="img/modi.jpg" alt="cs access img" class="img-fluid mx-auto d-block py-2"></img>
+        <p>There are also two combinations: protected internal and private protected.</p>
+        </overview>
+        <example>
+        <pre><code class="language-cs">
+
+class Car
+{
+    // Static parameter common to whole class
+    public static int wheels = 4;
+    // Property that returns and changes static wheels
+    public int Wheels
+    {
+        get {return wheels;}
+        set {wheels = value;}
+    }
+    public string Color;
+    public string Type;
+    public int Age;
+    public string Fuel;
+    private int _serialNumber; // Private field (default)
+    // Read-only property SerialNumber
+    public int SerialNumber {get {return _serialNumber;}}
+    // Default short-hand property would be:
+    // public int SerialNumber {get; set;}
+
+    // Constructor
+    public Car(string color, string type, int age, int serial, string fuel="diesel")
+    {
+        Color = color;
+        Type = type;
+        Age = age;
+        _serialNumber = serial;
+        Fuel = fuel;
+    }
+
+    // Basic method, returns nothing - void
+    public void Drive()
+    {
+        Console.WriteLine("Car moved 1 meter forwards.");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create a new Car object with mandatory parameters
+        Car car1 = new Car("green", "toyota", 7, 648612318);
+        Car car1 = new Car("green", "audi", 2, 456894125), gasoline
+        Console.WriteLine("{0} {1} {2} {3} {4}", car1.Wheels, car1.Color, 
+                          car1.Age, car1.SerialNumber, car1.Fuel);
+        Console.WriteLine("{0} {1} {2} {3} {4}", car1.Wheels, car1.Color, 
+                          car1.Age, car1.SerialNumber, car1.Fuel);
+        // Prints: &gt;&gt;&gt;4 green 7 648612318 diesel
+        //         &gt;&gt;&gt;4 red 2 456894125 gasoline
+
+        Car.wheels = 6;
+        car1.Color = "blue";
+        car1.Drive();
+        Console.WriteLine("{0} {1} {2} {3} {4}", car1.Wheels, car1.Color, 
+                          car1.Age, car1.SerialNumber, car1.Fuel);
+        Console.WriteLine("{0} {1} {2} {3} {4}", car1.Wheels, car1.Color, 
+                          car1.Age, car1.SerialNumber, car1.Fuel);
+        // Prints: &gt;&gt;&gt;6 blue 7 648612318 diesel
+        //         &gt;&gt;&gt;6 red 2 456894125 gasoline
+    }
+}
+        </code></pre>
+        </example>
+    </OOP>
+</root>

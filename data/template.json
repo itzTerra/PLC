@@ -1,0 +1,26 @@
+{
+    "general":"",
+    "variables":"",
+    "comments":"",
+    "output":"",
+    "datatypes":{
+        "boolean":"",
+        "numeric":"",
+        "string":"",
+        "array":"",
+        "hashtable":"",
+        "other":""
+    },
+    "operators":{
+        "arithmetic":"",
+        "logrel":""
+    },
+    "loops":{
+        "for":"",
+        "while":""
+    },
+    "OOP":{
+        "general":"",
+        "example":""
+    }
+}

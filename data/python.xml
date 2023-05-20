@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="schema.xsd">
+    <syntax>
+        <p>Python is a dynamically-typed language, which means that it has typed objects but untyped variables.</p>
+        <p>Python uses whitespace indentation, rather than curly brackets or keywords, to delimit blocks.</p>
+        <p>A Python script is run from top to bottom, so a function has to be declared before it is called.</p>
+    </syntax>
+    <comments>
+        Comments in Python start with #.
+        <pre><code class="language-python">
+# This is a comment
+print("Hello, World!") # This is another comment
+        </code></pre>
+        Python does not really have syntax for multi line comments. To add a multiline comment you can insert a # for each line:
+        <pre><code class="language-python">
+# This is a comment
+# written in
+# more than just one line
+print("Hello, World!")
+        </code></pre>
+        Or, not quite as intended - since Python will ignore string literals that are not assigned to a variable, you can add a multiline string (triple quotes) in your code, and place your comment inside it:
+        <pre><code class="language-python">
+"""
+This is a comment
+written in
+more than just one line
+"""
+print("Hello, World!")
+        </code></pre>
+    </comments>
+    <output>
+    <pre><code class="language-python">
+print("Hello World!")
+print('This works too\nNew line')
+print(451)
+    </code></pre>
+    2 ways of printing "My name is John and I'm 25 years old." using variables:
+    <pre><code class="language-python">
+name = "John"
+age = 25
+
+# Classic string concatenation
+print("My name is "+name+" and I'm "+str(age)+" years old.")
+# Variables must be strings - use type conversion function str()
+
+# Efficient f-string formatting added in Python 3.6
+print(f"My name is {name} and I'm {age} years old.")
+# Note the automatic conversion of int age to string
+    </code></pre>
+    We can use equals in formatting for easier debugging, round numbers and more...
+    <pre><code class="language-python">
+print(f"{name=}, {51.425:1f}")
+# Prints: &gt;&gt;name='John', 51.4
+    </code></pre>
+    </output>
+    <datatypes>
+        <general>
+            <img src="img/types.png" alt="python types img" class="img-fluid bg-light"></img>
+            <p>None is Python equivalent to null in other languages. It's one of the falsy values and it's also the default value returned by functions that doesn't return anything, e.g. print().</p>
+        </general>
+        <boolean>
+        Python booleans are written with upper first letter: True/False. true or false would raise an error.
+        <pre><code class="language-python">
+my_boolean = True
+my_boolean2 = 1 > 2 # = False
+        </code></pre>
+        In Python, individual values can evaluate to either True or False. Values that evaluate to False are considered Falsy, values that evaluate to True are considered Truthy.
+        <p><strong>Falsy values:</strong></p>
+        <ul>
+            <li>empty collections (lists, strings...)</li>
+            <li>zero in any numeric type</li>
+            <li>constants None, False</li>
+        </ul>
+        <p><strong>Truthy values:</strong></p>
+        <ul>
+            <li>non-empty collections</li>
+            <li>non-zero numeric values</li>
+            <li>constant True</li>
+        </ul>
+        </boolean>
+        <numeric>
+        Create numeric variables of types: [int, float, complex] and assign them to 2.
+        <pre><code class="language-python">
+my_integer = 2
+my_float = 2.0
+my_complex = 2j
+        </code></pre>
+        </numeric>
+        <string>
+        Strings are iterable, immutable and ordered sequences. In Python, even characters like "c" are strings.
+        <pre><code class="language-python">
+my_string = "" # Create empty string object
+my_string2 = "bLue skY"
+my_string2 = my_string2.upper() # = BLUE SKY
+        </code></pre>
+        </string>
+        <array>
+        Lists are iterable, mutable and ordered sequences. Similar to arrays in other languages, but can hold different types.
+        <pre><code class="language-python">
+my_list = [] # Create empty list object
+my_list2 = [2, "Steve", ' ', True, 4.5, None]
+item = my_list2[1] # Accessing sequence item by it's index
+my_list2[2] = "third" # Changing sequence item by it's index
+length = len(my_list2) # = 6
+
+my_list2.append("last")
+# Appends given object ("last") to the end of the list
+my_list2.insert(-1, "second last")
+# Inserts given object ("second last") BEFORE given index (-1)
+my_list.extend(my_list2)
+# Appends elements from given iterable (my_list2)
+
+first = my_list.pop(0)
+# Removes item at given index (0) and returns it's value --> first = 2
+my_list.remove("Steve")
+# Removes first occurence of given item from list
+
+# Sorting lists
+# sorted() function returns a sorted list of items from an iterable.
+# .sort() method changes original list and returns None.
+# Ascending order on default, descending using reverse=True keyword.
+unsorted_list = [8, -2, 84, 0, -99]
+sorted_list = sorted(unsorted_list, reverse=True)
+unsorted_list.sort(reverse=True)
+# unsorted_list == sorted_list = [84, 8, 0, -2, -99]
+        </code></pre>
+        </array>
+        <hashtable>
+        Dictionaries are iterable, mutable and ordered (from Python 3.7). A dictionary is basically a hash table in common terms.
+        <pre><code class="language-python">
+my_dict = {} # Create empty dictionary object
+my_dict2 = {"key": "value", "first": "John", 1: "John", 3.14: False}
+
+my_dict2["new"] = "new value" # Adds a new key:value pair to the dictionary
+my_dict2["key"] = "updated value" # Changes value with given key
+
+first = my_dict2["first"] # first = "John"
+first =  my_dict2.get("first") # first = "John"
+second = my_dict2["second"] # --> Error (key "second" doesn't exist)
+second = my_dict2.get("second", "Key not found")
+# second = "Key not found", if left blank --> second = None
+
+my_dict2.pop("key") # Removes a pair based on given key;
+                    # Also returns the value (similar to .pop on list)
+my_dict2.clear() # Removes all pairs
+        </code></pre>
+        </hashtable>
+        <other>
+        <strong>Tuples</strong> are iterable, immutable and ordered sequences.
+        <pre><code class="language-python">
+my_tuple = () # Create empty tuple object
+my_tuple2 = (2, 2, 9.5, -4, "apple")
+third = my_list2[2] # = 9.5; Accessing sequence item by it's index
+my_tuple3 = ([5, 8], (8, 2))
+my_tuple3[0][1] = 2 # my_tuple3 = ([5, 2], (8, 2))
+my_tuple3[1][1] = 3 # --> Error (can't change tuples)
+        </code></pre>
+        <p><strong>Sets</strong> are iterable, mutable and unordered. They don't allow duplicates, which is useful for getting rid of duplicates from a list (if we don't mind losing order).</p>
+        <p>Note that empty set isn't declared using {} (that would be dictionary), but using set() function.</p>
+        <pre><code class="language-python">
+my_set = set() # Create empty set object
+my_set2 = {2, 2, 9.5, -4, "apple"}
+print(my_set2)
+# Prints e.g.: {9.5, 2, 'apple', -4} - second 2 is gone, order is random
+        </code></pre>
+        <p>Python type conversion functions:</p>
+        <img src="img/type_conversion.png" alt="python type conversion img" class="img-fluid"></img>
+        </other>
+    </datatypes>
+    <operators>
+        <arithmetic>
+        <img src="img/arithmetic-operation-in-python.png" alt="python operators img" class="img-fluid"></img>
+        <pre><code class="language-python">
+two = 2 * 1 # = 2
+sum = 2 + two # = 4
+sum -= 3 # = 1
+one_third = sum / 3 # = 0.333333
+floor_divison = sum // 3 # = 0
+remainder = 5 % 2 # = 1
+square = 4**2 # = 16
+
+math_problem = 2 + 5 * 4 // 2 - 1 # = 11
+math_problem = (2 + 5) * (4 // (2 - 1)) # = 28
+
+# Have to import math module for square root, ceil methods etc.
+import math
+root = math.sqrt(square) # = 4
+ceil = math.ceil(sum / 3) # = 1
+        </code></pre>
+        </arithmetic>
+        <logrel>
+        <img src="img/LogicalOperators.png" alt="python operators img" class="img-fluid"></img>
+        <img src="img/Relational-Operators-in-Python.png" alt="python operators img" class="img-fluid mx-auto d-block py-2"></img>
+        </logrel>
+    </operators>
+    <loops>
+        <for>
+        <pre><code class="language-python">
+for i in range(3): # Prints: &gt;&gt;&gt;0
+    print(i)       #         &gt;&gt;&gt;1
+                   #         &gt;&gt;&gt;2
+
+flat_list = []
+matrix = [[1, 2], [5, 0]]
+for i in matrix:            # Prints: &gt;&gt;&gt;1
+    for j in i:             #         &gt;&gt;&gt;2
+        print(j)            #         &gt;&gt;&gt;5
+        flat_list.append(j) #         &gt;&gt;&gt;0
+
+for index, item in enumerate(flat_list): # Prints: &gt;&gt;&gt;0: 1
+    print(f"{index}: {item}")            #         &gt;&gt;&gt;1: 2
+                                         #         &gt;&gt;&gt;2: 5
+                                         #         &gt;&gt;&gt;3: 0
+        </code></pre>
+        </for>
+        <while>
+        <pre><code class="language-python">
+counter = 1
+while counter &lt;= 10:
+    if counter == 9:
+        counter += 1
+        continue
+    print(counter)
+    counter += 1
+# Counts from 1 to 10, skipping 9
+
+# Infinite loop breaking on correct input
+while True:
+    password = input("password: ") # Get user input from console
+    if password == "1234":
+        break
+        </code></pre>
+        </while>
+    </loops>
+    <OOP>
+        <overview>
+        Python is a multi-paradigm programming language. It supports different programming approaches. One of the popular approaches to solve a programming problem is by creating objects. This is known as Object-Oriented Programming (OOP).
+        </overview>
+        <example>
+        <pre><code class="language-python">
+class Car:
+    # Every object of this class will have this wheels variable
+    wheels = 4
+    
+    def __init__(self, color, type, age, serial, fuel = "diesel"):
+        self.color = color
+        self.type = type
+        self.age = age
+        self.fuel = fuel
+        self._serial_number = serial
+        
+    # Make a read-only property serial_number using a decorator
+    # Note this still allows changing _serial_number variable
+    @property
+    def serial_number(self):
+        return self._serial_number
+
+    # Add setter to serial_number property so it's no longer read-only
+    @serial_number.setter
+    def serial_number(self, number):
+        self._serial_number = number
+    
+    # Basic method, returns None
+    def drive(self):
+        print("Car moved 1 meter forwards.")
+
+
+
+
+
+
+
+
+# Create a new Car object with mandatory parameters
+car1 = Car("green", "toyota", 7, 648612318)
+car2 = Car("red", "audi", 2, 456894125, "gasoline")
+print(car1.wheels, car1.color, car1.age, car1.serial_number, car1.fuel)
+print(car2.wheels, car2.color, car2.age, car2.serial_number, car2.fuel)
+# Prints: >>>4 green 7 648612318 diesel
+#         >>>4 red 2 456894125 gasoline
+
+Car.wheels = 6
+car1.color = "blue"
+car1.drive()
+print(car1.wheels, car1.color, car1.age, car1.serial_number, car1.fuel)
+print(car2.wheels, car2.color, car2.age, car2.serial_number, car2.fuel)
+# Prints: >>>6 blue 8 648612318 diesel
+#         >>>6 red 2 456894125 gasoline
+        </code></pre>
+        </example>
+    </OOP>
+</root>

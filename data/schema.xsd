@@ -1,0 +1,50 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="syntax" type="xs:anyType"/>
+        <xs:element name="comments" type="xs:anyType"/>
+        <xs:element name="output" type="xs:anyType"/>
+        <xs:element name="datatypes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="general" type="xs:anyType"/>
+              <xs:element name="boolean" type="xs:anyType"/>
+              <xs:element name="numeric" type="xs:anyType"/>
+              <xs:element name="string" type="xs:anyType"/>
+              <xs:element name="array" type="xs:anyType"/>
+              <xs:element name="hashtable" type="xs:anyType"/>
+              <xs:element name="other" type="xs:anyType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="operators">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="arithmetic" type="xs:anyType"/>
+              <xs:element name="logrel" type="xs:anyType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="loops">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="for" type="xs:anyType"/>
+              <xs:element name="while" type="xs:anyType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="OOP">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="overview" type="xs:anyType"/>
+              <xs:element name="example" type="xs:anyType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

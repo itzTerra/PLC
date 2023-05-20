@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="schema.xsd">
+    <syntax></syntax>
+    <variables></variables>
+    <comments></comments>
+    <output></output>
+    <datatypes>
+        <general></general>
+        <boolean></boolean>
+        <numeric></numeric>
+        <string></string>
+        <array></array>
+        <hashtable></hashtable>
+        <other></other>
+    </datatypes>
+    <operators>
+        <arithmetic></arithmetic>
+        <logrel></logrel>
+    </operators>
+    <loops>
+        <for></for>
+        <while></while>
+    </loops>
+    <OOP>
+        <overview></overview>
+        <example></example>
+    </OOP>
+</root>
