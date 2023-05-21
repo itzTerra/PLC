@@ -51,12 +51,12 @@ print(f"My name is {name} and I'm {age} years old.")
     We can use equals in formatting for easier debugging, round numbers and more...
     <pre><code class="language-python">
 print(f"{name=}, {51.425:1f}")
-# Prints: &gt;&gt;name='John', 51.4
+# Prints: >>>name='John', 51.4
     </code></pre>
     </output>
     <datatypes>
         <general>
-            <img src="img/types.png" alt="python types img" class="img-fluid bg-light"></img>
+            <img src="static/img/types.png" alt="python types img" class="img-fluid bg-light"></img>
             <p>None is Python equivalent to null in other languages. It's one of the falsy values and it's also the default value returned by functions that doesn't return anything, e.g. print().</p>
         </general>
         <boolean>
@@ -165,12 +165,12 @@ print(my_set2)
 # Prints e.g.: {9.5, 2, 'apple', -4} - second 2 is gone, order is random
         </code></pre>
         <p>Python type conversion functions:</p>
-        <img src="img/type_conversion.png" alt="python type conversion img" class="img-fluid"></img>
+        <img src="static/img/type_conversion.png" alt="python type conversion img" class="img-fluid"></img>
         </other>
     </datatypes>
     <operators>
         <arithmetic>
-        <img src="img/arithmetic-operation-in-python.png" alt="python operators img" class="img-fluid"></img>
+        <img src="static/img/arithmetic-operation-in-python.png" alt="python operators img" class="img-fluid"></img>
         <pre><code class="language-python">
 two = 2 * 1 # = 2
 sum = 2 + two # = 4
@@ -190,8 +190,8 @@ ceil = math.ceil(sum / 3) # = 1
         </code></pre>
         </arithmetic>
         <logrel>
-        <img src="img/LogicalOperators.png" alt="python operators img" class="img-fluid"></img>
-        <img src="img/Relational-Operators-in-Python.png" alt="python operators img" class="img-fluid mx-auto d-block py-2"></img>
+        <img src="static/img/LogicalOperators.png" alt="python operators img" class="img-fluid"></img>
+        <img src="static/img/Relational-Operators-in-Python.png" alt="python operators img" class="img-fluid mx-auto d-block py-2"></img>
         </logrel>
     </operators>
     <loops>

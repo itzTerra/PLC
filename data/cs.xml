@@ -56,7 +56,7 @@ Console.WriteLine($"My name is {name} and I'm {age} years old.");
     </output>
     <datatypes>
         <general>
-        <img src="img/c-sharp-data-types.jpg" alt="cs types img" class="img-fluid"></img>
+        <img src="static/img/c-sharp-data-types.jpg" alt="cs types img" class="img-fluid"></img>
         </general>
         <boolean>
         Boolean values are lowercase, default is false.
@@ -203,7 +203,7 @@ int myInt = (int) myDouble; // = 9 (data loss)
     </datatypes>
     <operators>
         <arithmetic>
-            <img src="img/arithmetic_operators_csharp.png" alt="csharp operators img" class="img-fluid"></img>
+            <img src="static/img/arithmetic_operators_csharp.png" alt="csharp operators img" class="img-fluid"></img>
             <pre><code class="language-cs">
 int two = 2 * 1; // = 2
 int sum = 2 + two; // = 4
@@ -216,7 +216,7 @@ int mathProblem2 = (2 + 5) * (4 / (2 - 1)); // = 28
 
 two++; // Increment int two by 1
 int four = two++; // First assign value of int two (3), then increment two
-                   // four = 3, two = 4
+                  // four = 3, two = 4
 
 // Have to use Math class for a lot of operations
 double round = Math.Round(one_third); // = 0
@@ -228,14 +228,14 @@ double root = Math.Sqrt(square); // = 4
             </code></pre>
         </arithmetic>
         <logrel>
-            <img src="img/LogicalOperatorsCs.png" alt="cs operators img" class="img-fluid"></img>
-            <img src="img/Relational-Operators-in-Python.png" alt="cs operators img" class="img-fluid mx-auto d-block py-2"></img>
+            <img src="static/img/LogicalOperatorsCs.png" alt="cs operators img" class="img-fluid"></img>
+            <img src="static/img/Relational-Operators-in-Python.png" alt="cs operators img" class="img-fluid mx-auto d-block py-2"></img>
         </logrel>
     </operators>
     <loops>
         <for>
         <pre><code class="language-cs">
-for (int i = 0; i &lt; 3; i++){  // Prints: &gt;&gt;&gt;0
+for (int i = 0; i &lt; 3; i++){     // Prints: &gt;&gt;&gt;0
     System.Console.WriteLine(i); //         &gt;&gt;&gt;1
 }                                //         &gt;&gt;&gt;2
 
@@ -289,7 +289,7 @@ class Program
         <p><strong>Static</strong> method (or field, property) isn't accessible from an object and is common to the whole class. You cannot create an object of a static class.</p>
         <p><strong>Void</strong> keyword is a return type if your method doesn't return anything. If a method would return an integer, the keyword would be int.</p>
         <p>Access modifiers are used to set the access level/visibility for classes, fields, methods and properties.</p>
-        <img src="img/modi.jpg" alt="cs access img" class="img-fluid mx-auto d-block py-2"></img>
+        <img src="static/img/modi.jpg" alt="cs access img" class="img-fluid mx-auto d-block py-2"></img>
         <p>There are also two combinations: protected internal and private protected.</p>
         </overview>
         <example>
